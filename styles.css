@@ -1,562 +1,388 @@
-/* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #1a1a1a;
-    color: #e0e0e0;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header styles */
-header {
-    background: linear-gradient(135deg, #2b5876, #4e4376);
-    color: white;
-    text-align: center;
-    padding: 80px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.3));
-}
-
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-header p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
-
-/* Navigation */
-nav {
-    background-color: #252525;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 15px 0;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
-
-nav ul li a:hover {
-    color: #6e8efb;
-}
-
-/* Section styles */
-.section {
-    padding: 80px 0;
-    border-bottom: 1px solid #333;
-}
-
-.section h2 {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 2.5rem;
-    color: #fff;
-    position: relative;
-}
-
-.section h2::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(to right, #6e8efb, #a777e3);
-    margin: 15px auto 0;
-    border-radius: 2px;
-}
-
-/* About section */
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.profile-img {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid #4e4376;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.about-text {
-    flex: 1;
-    min-width: 300px;
-    max-width: 600px;
-}
-
-.about-text p {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-.game-dev-philosophy {
-    margin-top: 30px;
-    background: #252525;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.game-dev-philosophy h3 {
-    margin-bottom: 15px;
-    color: #6e8efb;
-}
-
-.game-dev-philosophy ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-}
-
-.game-dev-philosophy li {
-    padding: 8px 0 8px 25px;
-    position: relative;
-}
-
-.game-dev-philosophy li::before {
-    content: '▹';
-    position: absolute;
-    left: 0;
-    color: #6e8efb;
-}
-
-/* Projects section */
-.project-category {
-    margin-bottom: 60px;
-}
-
-.project-category h3 {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    color: #6e8efb;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
-}
-
-.projects-grid.compact {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-}
-
-.project-card {
-    background: #252525;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-}
-
-.project-media {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-}
-
-.project-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-media img {
-    transform: scale(1.05);
-}
-
-.play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background: rgba(110, 142, 251, 0.8);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.project-card:hover .play-btn {
-    opacity: 1;
-}
-
-.store-badge {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 50px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.project-card:hover .store-badge {
-    opacity: 1;
-}
-
-.project-info {
-    padding: 20px;
-}
-
-.project-info h4 {
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-    color: white;
-}
-
-.project-meta {
-    color: #aaa;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-
-.project-desc {
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.project-links {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(to right, #6e8efb, #a777e3);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(110, 142, 251, 0.4);
-}
-
-.btn.secondary {
-    background: #333;
-    color: #ddd;
-}
-
-.btn.secondary:hover {
-    background: #444;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* Skills section */
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.skill-category {
-    background: #252525;
-    padding: 25px;
-    border-radius: 10px;
-}
-
-.skill-category h3 {
-    color: #6e8efb;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.skill-category ul {
-    list-style: none;
-}
-
-.skill-category li {
-    padding: 8px 0;
-    position: relative;
-    padding-left: 25px;
-}
-
-.skill-category li::before {
-    content: '▹';
-    position: absolute;
-    left: 0;
-    color: #6e8efb;
-}
-
-/* Experience section */
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding-left: 50px;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #333;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 40px;
-}
-
-.timeline-date {
-    position: absolute;
-    left: -50px;
-    top: 0;
-    width: 100px;
-    text-align: right;
-    color: #6e8efb;
-    font-weight: 500;
-}
-
-.timeline-content {
-    background: #252525;
-    padding: 25px;
-    border-radius: 8px;
-    position: relative;
-}
-
-.timeline-content::before {
-    content: '';
-    position: absolute;
-    left: -10px;
-    top: 20px;
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid #252525;
-}
-
-.timeline-content h3 {
-    color: white;
-    margin-bottom: 5px;
-}
-
-.timeline-content h4 {
-    color: #aaa;
-    font-size: 1rem;
-    margin-bottom: 15px;
-    font-weight: normal;
-}
-
-.timeline-content ul {
-    list-style: none;
-}
-
-.timeline-content li {
-    padding: 5px 0 5px 20px;
-    position: relative;
-}
-
-.timeline-content li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: #6e8efb;
-}
-
-/* Contact section */
-.contact-container {
-    display: flex;
-    gap: 50px;
-    flex-wrap: wrap;
-}
-
-.contact-info {
-    flex: 1;
-    min-width: 300px;
-}
-
-.contact-form {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #ddd;
-    text-decoration: none;
-    margin-bottom: 15px;
-    transition: color 0.3s ease;
-}
-
-.contact-link:hover {
-    color: #6e8efb;
-}
-
-.contact-link i {
-    width: 30px;
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 12px 15px;
-    background: #252525;
-    border: 1px solid #333;
-    border-radius: 5px;
-    color: white;
-    font-family: inherit;
-    font-size: 1rem;
-}
-
-textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-/* Footer */
-footer {
-    background: #111;
-    color: #777;
-    text-align: center;
-    padding: 30px 0;
-    font-size: 0.9rem;
-}
-
-.footer-links {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.footer-links a {
-    color: #777;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #6e8efb;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2rem;
-    }
-    
-    nav ul {
-        flex-wrap: wrap;
-    }
-    
-    .section {
-        padding: 60px 0;
-    }
-    
-    .project-media {
-        height: 150px;
-    }
-    
-    .timeline {
-        padding-left: 30px;
-    }
-    
-    .timeline-date {
-        position: static;
-        text-align: left;
-        margin-bottom: 5px;
-        width: auto;
-    }
-    
-    .timeline-content::before {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .project-links {
-        flex-direction: column;
-    }
-    
-    .btn {
-        justify-content: center;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqib Shafiq - Unity Game Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Aqib Shafiq</h1>
+            <p>Unity Game Developer | VR/AR Specialist | 3D Instructor</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="profile.jpg" alt="Aqib Shafiq" class="profile-img">
+                <div class="about-text">
+                    <p>
+                        I'm a passionate Unity Game Developer and VR/AR specialist with experience at Mercedes Benz and as a Unity 3D Instructor. 
+                        My expertise includes C# programming, game optimization, and creating immersive VR training simulations.
+                    </p>
+                    <p>
+                        As a technical instructor at University of Management and Technology and GameTrain, I've helped shape the next generation 
+                        of game developers while continuing to work on cutting-edge game projects.
+                    </p>
+                    <div class="game-dev-philosophy">
+                        <h3>Development Approach</h3>
+                        <ul>
+                            <li>Performance-optimized code</li>
+                            <li>Immersive user experiences</li>
+                            <li>Cross-platform compatibility</li>
+                            <li>Agile development practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Present</div>
+                    <div class="timeline-content">
+                        <h3>Unity Game Developer</h3>
+                        <h4>High on Tech</h4>
+                        <ul>
+                            <li>Specializing in gameplay, AI, and optimization for Unity projects</li>
+                            <li>Developing diverse applications including 2D games and AVXV</li>
+                            <li>Utilizing Unity tools like Asset Store, Asset Bundles, and Animator</li>
+                            <li>Solving complex game development challenges for international clients</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h3>UnityVR/AR Intern</h3>
+                        <h4>Mercedes Benz – Stuttgart, Germany</h4>
+                        <ul>
+                            <li>Developed interactive VR experiences for virtual factory worker simulations</li>
+                            <li>Optimized performance and enhanced UX using C# programming</li>
+                            <li>Integrated VR headsets/controllers for realistic training simulations</li>
+                            <li>Designed applications for WebGL and Windows platforms</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-content">
+                        <h3>Unity 3D Instructor</h3>
+                        <h4>GameTrain</h4>
+                        <ul>
+                            <li>Trained students in Unity 3D for mobile and web game development</li>
+                            <li>Led teams in 3D game creation from concept to final product</li>
+                            <li>Mentored CS graduates in game development and industry placements</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021</div>
+                    <div class="timeline-content">
+                        <h3>Lab Engineer</h3>
+                        <h4>University of Management and Technology</h4>
+                        <ul>
+                            <li>Taught Python, SQL databases, and C# to university students</li>
+                            <li>Assisted students through interactive coding labs</li>
+                            <li>Provided personalized feedback to enhance coding skills</li>
+                            <li>Conducted computer science lectures for up to 50 students</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Game Projects</h2>
+            
+            <!-- VR/AR Projects -->
+            <div class="project-category">
+                <h3><i class="fas fa-vr-cardboard"></i> VR/AR Projects</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="mercedes-vr.jpg" alt="Mercedes VR Training">
+                        </div>
+                        <div class="project-info">
+                            <h4>Factory Worker VR Training</h4>
+                            <p class="project-meta">Unity | C# | VR | Mercedes Benz</p>
+                            <p class="project-desc">Developed immersive VR training simulations for new factory workers at Mercedes Benz, integrating VR hardware and optimizing performance.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn"><i class="fas fa-video"></i> View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="ar-computer.jpg" alt="AR Computer Architecture">
+                        </div>
+                        <div class="project-info">
+                            <h4>AR Computer Architecture</h4>
+                            <p class="project-meta">Unity | AR | Educational</p>
+                            <p class="project-desc">Developed AR app for university students to explore computer hardware internals with interactive tutorials.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn"><i class="fas fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Multiplayer Games -->
+            <div class="project-category">
+                <h3><i class="fas fa-network-wired"></i> Multiplayer Games</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="battle-royale.jpg" alt="Visualized PSS">
+                        </div>
+                        <div class="project-info">
+                            <h4>Visualized PSS Battle Royale</h4>
+                            <p class="project-meta">Unity | C# | Multiplayer</p>
+                            <p class="project-desc">Developed multiplayer battle royale game with optimized networking and gameplay systems.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn"><i class="fas fa-gamepad"></i> Play Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="ludo.jpg" alt="Ludo Multiplayer">
+                        </div>
+                        <div class="project-info">
+                            <h4>Ludo Online Multiplayer</h4>
+                            <p class="project-meta">Unity | C# | Board Game</p>
+                            <p class="project-desc">Created online Ludo game with matchmaking, custom in-game stores, and social features.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn"><i class="fab fa-google-play"></i> Play Store</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Games -->
+            <div class="project-category">
+                <h3><i class="fas fa-mobile-alt"></i> Mobile Games</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="tsukshit.jpg" alt="TsukShit Game">
+                        </div>
+                        <div class="project-info">
+                            <h4>TsukShit Fighting Game</h4>
+                            <p class="project-meta">Unity | Android/iOS | Story-Based</p>
+                            <p class="project-desc">Story-based task fighting game developed for mobile platforms with engaging combat mechanics.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn"><i class="fab fa-google-play"></i> Play Store</a>
+                                <a href="#" class="btn secondary"><i class="fab fa-apple"></i> App Store</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="platformer.jpg" alt="2D Platformer">
+                        </div>
+                        <div class="project-info">
+                            <h4>2D Platformer Puzzle Game</h4>
+                            <p class="project-meta">Unity | 2D | Puzzle</p>
+                            <p class="project-desc">Innovative 2D platformer with light/dark perspective mechanics and unique gameplay.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn"><i class="fas fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Professional Projects -->
+            <div class="project-category">
+                <h3><i class="fas fa-briefcase"></i> Professional Work</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="happy-nation.jpg" alt="Happy Nation">
+                        </div>
+                        <div class="project-info">
+                            <h4>HM-Meistermes (Happy Nation)</h4>
+                            <p class="project-meta">Unity | Optimization | Germany</p>
+                            <p class="project-desc">Optimized and added new features to Happy Nation's interactive open world platform where users can earn benefits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <ul>
+                        <li>C# (Advanced)</li>
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-gamepad"></i> Game Development</h3>
+                    <ul>
+                        <li>Unity 3D (Expert)</li>
+                        <li>VR/AR Development</li>
+                        <li>Game AI</li>
+                        <li>Performance Optimization</li>
+                        <li>Multiplayer Networking</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-paint-brush"></i> Design & Tools</h3>
+                    <ul>
+                        <li>Blender</li>
+                        <li>Autodesk Maya</li>
+                        <li>3Ds Max</li>
+                        <li>Adobe Photoshop</li>
+                        <li>Audacity</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> Other Technologies</h3>
+                    <ul>
+                        <li>Google Firebase</li>
+                        <li>Raspberry Pi</li>
+                        <li>Git</li>
+                        <li>SDLC</li>
+                        <li>Unit Testing</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="languages-section">
+                <h3><i class="fas fa-language"></i> Languages</h3>
+                <div class="languages-grid">
+                    <div class="language-item">
+                        <span class="language-name">English</span>
+                        <div class="language-level">
+                            <div class="level-bar" style="width: 90%;"></div>
+                            <span>Advanced</span>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">German</span>
+                        <div class="language-level">
+                            <div class="level-bar" style="width: 70%;"></div>
+                            <span>Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Purgibl</span>
+                        <div class="language-level">
+                            <div class="level-bar" style="width: 100%;"></div>
+                            <span>Native</span>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">French</span>
+                        <div class="language-level">
+                            <div class="level-bar" style="width: 85%;"></div>
+                            <span>Advanced (Diploma)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2>Education & Certifications</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>Master of Science</h3>
+                    <h4>Automotive Software Engineering</h4>
+                    <p>Technische Universität Chemnitz – Germany</p>
+                </div>
+                <div class="education-card">
+                    <h3>Bachelor of Science</h3>
+                    <h4>Software Engineering</h4>
+                    <p>University of Management and Technology – Pakistan</p>
+                </div>
+                <div class="education-card">
+                    <h3>Certifications</h3>
+                    <ul>
+                        <li>Full Stack Web Developer - Skyflie Institute</li>
+                        <li>Unity 3D Developer - CETA UMT</li>
+                        <li>Adobe Photoshop - CETA UMT</li>
+                        <li>IELTS 7.5 (Academic)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>I'm available for game development opportunities, VR/AR projects, or technical instruction roles.</p>
+                    <div class="contact-links">
+                        <a href="mailto:your.email@example.com" class="contact-link">
+                            <i class="fas fa-envelope"></i> your.email@example.com
+                        </a>
+                        <a href="https://drive.google.com/lite/d/12HobDNYXXMbCGFHTq4v1t8jJ8_8ef9yH/view?usp=sharing" class="contact-link">
+                            <i class="fas fa-video"></i> View Project Showreel
+                        </a>
+                        <a href="https://github.com/yourusername" class="contact-link">
+                            <i class="fab fa-github"></i> github.com/yourusername
+                        </a>
+                        <a href="https://linkedin.com/in/yourusername" class="contact-link">
+                            <i class="fab fa-linkedin"></i> linkedin.com/in/yourusername
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Aqib Shafiq. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="Aqib_Shafiq_Resume.pdf" download>Download Resume</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
