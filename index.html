@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Your Name - Game Developer Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -11,7 +11,7 @@
     <header>
         <div class="container">
             <h1>Your Name</h1>
-            <p>Web Developer | Designer | Your Specialty</p>
+            <p>Game Developer | Technical Artist | Game Designer</p>
         </div>
     </header>
 
@@ -20,6 +20,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -29,33 +30,107 @@
             <h2>About Me</h2>
             <div class="about-content">
                 <img src="profile.jpg" alt="Your Name" class="profile-img">
-                <p>
-                    Hello! I'm [Your Name], a passionate [your profession] with experience in [your skills]. 
-                    I love creating beautiful, functional websites and applications. 
-                    When I'm not coding, you can find me [your hobbies].
-                </p>
+                <div class="about-text">
+                    <p>
+                        I'm a passionate game developer specializing in [your specialties, e.g., Unity development, Unreal Engine, mobile games]. 
+                        With [X] years of experience in the industry, I've worked on projects ranging from [mention types of games you've worked on].
+                    </p>
+                    <p>
+                        My approach combines technical expertise with creative problem-solving to deliver engaging player experiences. 
+                        I'm particularly interested in [mention specific interests like procedural generation, VR/AR, multiplayer systems, etc.].
+                    </p>
+                    <div class="game-dev-philosophy">
+                        <h3>Development Philosophy</h3>
+                        <ul>
+                            <li>Player experience first</li>
+                            <li>Clean, maintainable code</li>
+                            <li>Iterative design process</li>
+                            <li>Performance optimization</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects" class="section">
         <div class="container">
-            <h2>My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Project 1</h3>
-                    <p>Description of your first project and what technologies you used.</p>
-                    <a href="#" class="btn">View Project</a>
+            <h2>Game Projects</h2>
+            
+            <!-- 2D Games Section -->
+            <div class="project-category">
+                <h3><i class="fas fa-gamepad"></i> 2D Games</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="project1-thumb.jpg" alt="Project 1">
+                            <a href="project1-trailer.mp4" class="play-btn"><i class="fas fa-play"></i></a>
+                        </div>
+                        <div class="project-info">
+                            <h4>Project Title</h4>
+                            <p class="project-meta">Unity | C# | 2023</p>
+                            <p class="project-desc">Brief description of the game, your role, and key features.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Play Demo</a>
+                                <a href="#" class="btn secondary"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more 2D game cards -->
                 </div>
-                <div class="project-card">
-                    <h3>Project 2</h3>
-                    <p>Description of your second project and what technologies you used.</p>
-                    <a href="#" class="btn">View Project</a>
+            </div>
+            
+            <!-- 3D Games Section -->
+            <div class="project-category">
+                <h3><i class="fas fa-cube"></i> 3D Games</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="project2-thumb.jpg" alt="Project 2">
+                            <a href="project2-trailer.mp4" class="play-btn"><i class="fas fa-play"></i></a>
+                        </div>
+                        <div class="project-info">
+                            <h4>Project Title</h4>
+                            <p class="project-meta">Unreal Engine | Blueprints/C++ | 2022</p>
+                            <p class="project-desc">Brief description of the game, your role, and key features.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Play Demo</a>
+                                <a href="#" class="btn secondary"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more 3D game cards -->
                 </div>
-                <div class="project-card">
-                    <h3>Project 3</h3>
-                    <p>Description of your third project and what technologies you used.</p>
-                    <a href="#" class="btn">View Project</a>
+            </div>
+            
+            <!-- Mobile Games Section -->
+            <div class="project-category">
+                <h3><i class="fas fa-mobile-alt"></i> Mobile Games</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="project3-thumb.jpg" alt="Project 3">
+                            <a href="#" class="store-badge"><img src="google-play-badge.png" alt="Get on Google Play"></a>
+                        </div>
+                        <div class="project-info">
+                            <h4>Project Title</h4>
+                            <p class="project-meta">Unity | C# | 2021</p>
+                            <p class="project-desc">Brief description of the game, your role, and key features.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn"><i class="fab fa-google-play"></i> Play Store</a>
+                                <a href="#" class="btn secondary"><i class="fab fa-apple"></i> App Store</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more mobile game cards -->
+                </div>
+            </div>
+            
+            <!-- Game Jam Projects -->
+            <div class="project-category">
+                <h3><i class="fas fa-clock"></i> Game Jam Projects</h3>
+                <div class="projects-grid compact">
+                    <!-- Add game jam projects in a more compact format -->
                 </div>
             </div>
         </div>
@@ -63,52 +138,105 @@
 
     <section id="skills" class="section">
         <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-list">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
                 <div class="skill-category">
-                    <h3>Frontend</h3>
+                    <h3><i class="fas fa-code"></i> Programming</h3>
                     <ul>
-                        <li>HTML5</li>
-                        <li>CSS3</li>
-                        <li>JavaScript</li>
-                        <li>React</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <ul>
-                        <li>Node.js</li>
+                        <li>C# (Unity)</li>
+                        <li>C++ (Unreal)</li>
                         <li>Python</li>
-                        <li>SQL</li>
+                        <li>JavaScript</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Tools</h3>
+                    <h3><i class="fas fa-gamepad"></i> Game Engines</h3>
                     <ul>
-                        <li>Git</li>
-                        <li>VS Code</li>
-                        <li>Figma</li>
+                        <li>Unity</li>
+                        <li>Unreal Engine</li>
+                        <li>Godot</li>
+                        <li>Custom Engines</li>
                     </ul>
                 </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-paint-brush"></i> Art & Design</h3>
+                    <ul>
+                        <li>3D Modeling (Blender/Maya)</li>
+                        <li>2D Art (Photoshop/Aseprite)</li>
+                        <li>Shader Programming</li>
+                        <li>Animation</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Other</h3>
+                    <ul>
+                        <li>Multiplayer Networking</li>
+                        <li>VR/AR Development</li>
+                        <li>Procedural Generation</li>
+                        <li>AI Programming</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Game Developer</h3>
+                        <h4>Studio Name</h4>
+                        <ul>
+                            <li>Developed core gameplay systems for [Game Title]</li>
+                            <li>Optimized rendering pipeline resulting in 30% performance improvement</li>
+                            <li>Implemented multiplayer networking solution</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Add more timeline items -->
             </div>
         </div>
     </section>
 
     <section id="contact" class="section">
         <div class="container">
-            <h2>Contact Me</h2>
-            <div class="contact-links">
-                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i> Email</a>
-                <a href="your-resume.pdf" download><i class="fas fa-file-pdf"></i> Resume</a>
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>I'm always interested in hearing about new game development opportunities or collaborations.</p>
+                    <div class="contact-links">
+                        <a href="mailto:your.email@example.com" class="contact-link">
+                            <i class="fas fa-envelope"></i> your.email@example.com
+                        </a>
+                        <a href="https://github.com/yourusername" class="contact-link">
+                            <i class="fab fa-github"></i> github.com/yourusername
+                        </a>
+                        <a href="https://linkedin.com/in/yourusername" class="contact-link">
+                            <i class="fab fa-linkedin"></i> linkedin.com/in/yourusername
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 Your Name. All rights reserved.</p>
+            <p>&copy; 2023 Your Name. All game assets and screenshots are from my personal projects.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Game Credits</a>
+                <a href="#">Resume</a>
+            </div>
         </div>
     </footer>
 </body>
