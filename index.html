@@ -13,7 +13,7 @@
     [data-theme="dark"] { background: #061024; color: #e6eef8; }
     .btn { padding: 0.5rem 0.75rem; border-radius: 0.5rem; font-size: 0.875rem; }
     .btn-play { background: #4f46e5; color: white; }
-    .btn-github { background: #416bd5; color: #f9fafb; }
+    .btn-github { background: #ffffff; color: #f9fafb; }
     .btn-store { background: #16a34a; color: white; }
     .preview-img { max-width: 400px; max-height: 400px; object-fit: cover; margin: 0 auto; }
   </style>
@@ -114,7 +114,10 @@
       const card = document.createElement('div');
       card.className = 'p-4 bg-slate-800 rounded-xl card-hover';
       card.innerHTML = `
-          <img src="${p.img}" alt="${p.title}" class="rounded mb-3 preview-img" />
+          <img src="${p.img}"  alt="${p.title}" class="rounded mb-3 preview-img" 
+    width: 315px;
+    height: 237px;
+ />
           <h5 class="font-semibold mb-1">${p.title}</h5>
           <p class="text-sm text-slate-300 mb-3">${p.desc}</p>
           <div class="flex flex-wrap gap-2">
