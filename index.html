@@ -130,41 +130,18 @@
 
   <script>
     const projects = [
-      { title: 'Burning Racket VR Unity', desc: 'A hypercasual VR tennis game...', 
-        img: 'GameImages/BurningRacket.gif', link: 'https://github.com/Aqib701/Burning_Racket_VR', details: 'Protect yourself from fireballs while keeping your racket cold. Endless gameplay with multiple difficulty modes.' },
-      { 
-        title: 'AR Computer Architecture', desc: 'AR app for students...',
-        img: 'GameImages/ComputerArchitectureAR.gif', link: 'https://github.com/Aqib701/ARComputerArchitecture', details: 'Explore computer hardware internals in AR with interactive tutorials.' },
-      { 
-        title: 'Multiplayer AR', desc: 'Hypercasual 3D AR game...',
-        img: 'GameImages/MultiplayerAR.gif', link: 'https://github.com/Aqib701/Multiplayer_AR_Unity', details: 'Matchmaking AR game where players collect coins to win.' },
-      { 
-        title: 'TempoTube', desc: 'Meet-and-greet multiplayer...',
-        img: 'GameImages/tempotube.png', link: 'WebGLBuilds/tempotube/index.html', details: 'Video chat multiplayer experience with customizable avatars.' },
-      { 
-        title: 'Ludo Online Multiplayer', desc: 'Mobile version of Ludo...',
-        img: 'GameImages/Ludo.PNG', link: '#', details: 'Supports 4 players, Facebook login, in-game currency, and profiles.' },
-      { 
-        title: 'Crossy Jungle Animals', desc: 'Kid-friendly hypercasual...',
-        img: 'GameImages/CrossyJungleAnimals.png', link: 'https://play.google.com/store/apps/details?id=com.AllOut.CrossyJungleAnimals&hl=en', details: 'Voxel-style Android game with soothing sounds and endless gameplay.' },
-      { 
-        title: 'Baby Shark Endless', desc: '2D endless game...',
-        img: 'GameImages/BabyShark.jpg', link: 'https://play.google.com/store/apps/details?id=com.AllOutGames.BabySharkEndless&hl=en', details: 'Collect gems, unlock sharks, and survive obstacles.' },
-      { 
-        title: 'Car Parking Game', desc: '3D car parking challenge...',
-        img: 'GameImages/ParkingGame.PNG', link: '#', details: 'Progressively harder parking levels with unlockable cars.' },
-      { 
-        title: 'TankRift', desc: 'Story-based tank fighting...',
-        img: 'GameImages/TankRift.PNG', link: 'WebGLBuilds/TankRift/index.html', details: 'Smooth controls and challenging missions on Android & Windows.' },
-      { 
-        title: 'RunRace', desc: 'Clone of RunRace...',
-        img: 'GameImages/RunRace.PNG', link: 'WebGLBuilds/RunRace/index.html', details: 'Unique levels with AI-driven opponents.' },
-      { 
-        title: 'ShiftPerspective', desc: '2D platformer puzzle...',
-        img: 'GameImages/ShiftPlatformer.PNG', link: 'WebGLBuilds/ShiftPlatformer/index.html', details: 'Switch light/dark perspectives to solve puzzles.' },
-      { 
-        title: 'Coin Toss', desc: 'Isometric coin toss app...',
-        img: 'GameImages/CoinToss.PNG', link: 'WebGLBuilds/CoinToss/index.html', details: 'Simulates a coin toss with Rigidbody physics.' }
+      { title: 'Burning Racket VR Unity', desc: 'A hypercasual VR tennis game...', img: 'GameImages/BurningRacket.gif', github: 'https://github.com/Aqib701/Burning_Racket_VR', details: 'Protect yourself from fireballs while keeping your racket cold. Endless gameplay with multiple difficulty modes.' },
+      { title: 'AR Computer Architecture', desc: 'AR app for students...', img: 'GameImages/ComputerArchitectureAR.gif', github: 'https://github.com/Aqib701/ARComputerArchitecture', details: 'Explore computer hardware internals in AR with interactive tutorials.' },
+      { title: 'Multiplayer AR', desc: 'Hypercasual 3D AR game...', img: 'GameImages/MultiplayerAR.gif', github: 'https://github.com/Aqib701/Multiplayer_AR_Unity', details: 'Matchmaking AR game where players collect coins to win.' },
+      { title: 'TempoTube', desc: 'Meet-and-greet multiplayer...', img: 'GameImages/tempotube.png', play: 'WebGLBuilds/tempotube/index.html', details: 'Video chat multiplayer experience with customizable avatars.' },
+      { title: 'Ludo Online Multiplayer', desc: 'Mobile version of Ludo...', img: 'GameImages/Ludo.PNG', details: 'Supports 4 players, Facebook login, in-game currency, and profiles.' },
+      { title: 'Crossy Jungle Animals', desc: 'Kid-friendly hypercasual...', img: 'GameImages/CrossyJungleAnimals.png', playstore: 'https://play.google.com/store/apps/details?id=com.AllOut.CrossyJungleAnimals&hl=en', details: 'Voxel-style Android game with soothing sounds and endless gameplay.' },
+      { title: 'Baby Shark Endless', desc: '2D endless game...', img: 'GameImages/BabyShark.jpg', playstore: 'https://play.google.com/store/apps/details?id=com.AllOutGames.BabySharkEndless&hl=en', details: 'Collect gems, unlock sharks, and survive obstacles.' },
+      { title: 'Car Parking Game', desc: '3D car parking challenge...', img: 'GameImages/ParkingGame.PNG', play: 'WebGLBuilds/ParkingGame/index.html', details: 'Progressively harder parking levels with unlockable cars.' },
+      { title: 'TankRift', desc: 'Story-based tank fighting...', img: 'GameImages/TankRift.PNG', play: 'WebGLBuilds/TankRift/index.html', details: 'Smooth controls and challenging missions on Android & Windows.' },
+      { title: 'RunRace', desc: 'Clone of RunRace...', img: 'GameImages/RunRace.PNG', play: 'WebGLBuilds/RunRace/index.html', details: 'Unique levels with AI-driven opponents.' },
+      { title: 'ShiftPerspective', desc: '2D platformer puzzle...', img: 'GameImages/ShiftPlatformer.PNG', play: 'WebGLBuilds/ShiftPlatformer/index.html', details: 'Switch light/dark perspectives to solve puzzles.' },
+      { title: 'Coin Toss', desc: 'Isometric coin toss app...', img: 'GameImages/CoinToss.PNG', play: 'WebGLBuilds/CoinToss/index.html', details: 'Simulates a coin toss with Rigidbody physics.' }
     ];
 
     const grid = document.getElementById('projectGrid');
