@@ -11,186 +11,150 @@
     .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); }
     .card-hover:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 10px 30px rgba(2,6,23,0.4); }
     [data-theme="dark"] { background: #061024; color: #e6eef8; }
+    .btn { padding: 0.5rem 0.75rem; border-radius: 0.5rem; font-size: 0.875rem; }
+    .btn-play { background: #4f46e5; color: white; }
+    .btn-github { background: #1f2937; color: #f9fafb; }
+    .btn-store { background: #16a34a; color: white; }
   </style>
 </head>
 <body class="min-h-screen bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-900 text-slate-100">
-  <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
-    <div class="flex items-center gap-4">
-      <div class="w-12 h-12 rounded-md bg-indigo-500 flex items-center justify-center font-bold text-white">AS</div>
-      <div>
-        <h1 class="text-xl font-semibold">Aqib Shafiq</h1>
-        <p class="text-sm text-indigo-200">Game Developer • Programmer • Designer</p>
-      </div>
-    </div>
-
-    <nav class="flex items-center gap-3">
-      <button id="themeToggle" aria-label="Toggle theme" class="px-3 py-2 rounded-md glass">Toggle</button>
-      <a href="#contact" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-md">Contact</a>
-    </nav>
-  </header>
-
-  <main class="max-w-6xl mx-auto p-6">
-    <!-- HERO -->
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-8">
-      <div class="md:col-span-2">
-        <h2 class="text-4xl font-extrabold leading-tight">Hi — I'm Aqib Shafiq.
-          <span class="block text-indigo-300 text-lg font-medium mt-2">Unity Developer & Game Programmer with experience in AR/VR, AI-based simulation, and digital twin technology.</span>
-        </h2>
-
-        <p class="mt-4 text-slate-300">I have diverse experience in game development, virtual automation, and simulation. I specialise in gameplay programming with Unity, VR/AR, systems design, and rapid prototyping. I’ve worked with Mercedes Benz on internal projects consissting of photorealistic digital twins and AI Model Generation, as well as shipped multiple indie projects.</p>
-
-        <div class="mt-6 flex gap-3">
-          <a href="#projects" class="px-4 py-2 bg-slate-700 rounded-md">View projects</a>
-          <a href="#cv" class="px-4 py-2 border border-slate-600 rounded-md">View CV</a>
-        </div>
-      </div>
-
-      <div class="hidden md:block p-6 bg-slate-800 rounded-2xl glass">
-        <h3 class="font-semibold">Quick stats</h3>
-        <ul class="mt-4 space-y-2 text-slate-300">
-          <li>✔️ Unity Game Developer (2018–Present)</li>
-          <li>✔️ VR/AR Development at Mercedes Benz</li>
-          <li>✔️ Master’s in Automotive Software Engineering (Chemnitz)</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE & CV -->
-    <section id="cv" class="mb-12 p-6 bg-slate-800 rounded-2xl glass">
-      <h3 class="text-2xl font-semibold mb-4">Experience & Background</h3>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <h4 class="font-semibold text-lg">Professional Experience</h4>
-          <ul class="mt-2 space-y-2 text-slate-300 text-sm">
-            <li><strong>Mercedes Benz</strong> — Unity/VR/AR Internship (2024–2025)</li>
-            <li><strong>Mercedes Benz</strong> — Master Thesis on AI Digital Twin (2025)</li>
-            <li><strong>High on Tech</strong> — Unity Game Developer (2021–2024)</li>
-            <li><strong>University of Management & Technology</strong> — Lab Engineer (2020–2021)</li>
-            <li><strong>GameTrain</strong> — Unity 3D Instructor (2018–2020)</li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-lg">Skills</h4>
-          <ul class="mt-2 space-y-1 text-slate-300 text-sm grid grid-cols-2">
-            <li>Unity 3D / C#</li>
-            <li>Godot / GDScript</li>
-            <li>C++ / Python / Java</li>
-            <li>VR & AR Development</li>
-            <li>AI Simulation / Digital Twin</li>
-            <li>Blender / Autodesk Maya</li>
-            <li>Firebase / Git / APIs</li>
-            <li>Team Leadership & Mentorship</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="mt-6">
-        <h4 class="font-semibold text-lg">Education</h4>
-        <ul class="mt-2 text-slate-300 text-sm">
-          <li><strong>M.Sc. Automotive Software Engineering</strong>, TU Chemnitz (2023–Present)</li>
-          <li><strong>B.Sc. Software Engineering</strong>, UMT Lahore (2015–2019)</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="mb-12">
-      <h3 class="text-2xl font-semibold mb-6">Projects</h3>
-
-      <!-- Example Project Card -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="projectGrid">
-        <!-- JS will inject project cards here -->
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="mt-12 p-6 bg-slate-800 rounded-2xl glass">
-      <h3 class="text-2xl font-semibold">Contact</h3>
-      <p class="text-slate-300 mt-2">Interested in collaborating? Get in touch via email or LinkedIn.</p>
-
-      <ul class="mt-4 text-slate-300 text-sm space-y-2">
-        <li><strong>Email:</strong> aqibshaïque94@gmail.com</li>
-        <li><strong>Phone:</strong> +49 1637905441</li>
-        <li><strong>Location:</strong> Stuttgart, Germany</li>
-        <li><a href="https://aqib701.github.io/" class="underline">Portfolio Website</a></li>
-      </ul>
-    </section>
-
-    <footer class="mt-10 text-sm text-slate-400">Made with ❤️ • <span id="year"></span> • Aqib Shafiq — <a href="#" class="underline">GitHub</a></footer>
-  </main>
-
-  <!-- MODAL -->
-  <div id="modal" class="fixed inset-0 hidden items-center justify-center p-6">
-    <div id="modalBg" class="absolute inset-0 bg-black/60"></div>
-    <div class="relative z-10 max-w-4xl w-full bg-slate-900 rounded-2xl p-6">
-      <button id="modalClose" class="absolute right-4 top-4 px-3 py-1 rounded-md glass">Close</button>
-      <div id="modalContent"></div>
+<header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
+  <div class="flex items-center gap-4">
+    <div class="w-12 h-12 rounded-md bg-indigo-500 flex items-center justify-center font-bold text-white">AS</div>
+    <div>
+      <h1 class="text-xl font-semibold">Aqib Shafiq</h1>
+      <p class="text-sm text-indigo-200">Game Developer • Programmer • Designer</p>
     </div>
   </div>
 
-  <script>
-    const projects = [
-      { title: 'Burning Racket VR Unity', desc: 'A hypercasual VR tennis game...', img: 'GameImages/BurningRacket.gif', github: 'https://github.com/Aqib701/Burning_Racket_VR', details: 'Protect yourself from fireballs while keeping your racket cold. Endless gameplay with multiple difficulty modes.' },
-      { title: 'AR Computer Architecture', desc: 'AR app for students...', img: 'GameImages/ComputerArchitectureAR.gif', github: 'https://github.com/Aqib701/ARComputerArchitecture', details: 'Explore computer hardware internals in AR with interactive tutorials.' },
-      { title: 'Multiplayer AR', desc: 'Hypercasual 3D AR game...', img: 'GameImages/MultiplayerAR.gif', github: 'https://github.com/Aqib701/Multiplayer_AR_Unity', details: 'Matchmaking AR game where players collect coins to win.' },
-      { title: 'TempoTube', desc: 'Meet-and-greet multiplayer...', img: 'GameImages/tempotube.png', play: 'WebGLBuilds/tempotube/index.html', details: 'Video chat multiplayer experience with customizable avatars.' },
-      { title: 'Ludo Online Multiplayer', desc: 'Mobile version of Ludo...', img: 'GameImages/Ludo.PNG', details: 'Supports 4 players, Facebook login, in-game currency, and profiles.' },
-      { title: 'Crossy Jungle Animals', desc: 'Kid-friendly hypercasual...', img: 'GameImages/CrossyJungleAnimals.png', playstore: 'https://play.google.com/store/apps/details?id=com.AllOut.CrossyJungleAnimals&hl=en', details: 'Voxel-style Android game with soothing sounds and endless gameplay.' },
-      { title: 'Baby Shark Endless', desc: '2D endless game...', img: 'GameImages/BabyShark.jpg', playstore: 'https://play.google.com/store/apps/details?id=com.AllOutGames.BabySharkEndless&hl=en', details: 'Collect gems, unlock sharks, and survive obstacles.' },
-      { title: 'Car Parking Game', desc: '3D car parking challenge...', img: 'GameImages/ParkingGame.PNG', play: 'WebGLBuilds/ParkingGame/index.html', details: 'Progressively harder parking levels with unlockable cars.' },
-      { title: 'TankRift', desc: 'Story-based tank fighting...', img: 'GameImages/TankRift.PNG', play: 'WebGLBuilds/TankRift/index.html', details: 'Smooth controls and challenging missions on Android & Windows.' },
-      { title: 'RunRace', desc: 'Clone of RunRace...', img: 'GameImages/RunRace.PNG', play: 'WebGLBuilds/RunRace/index.html', details: 'Unique levels with AI-driven opponents.' },
-      { title: 'ShiftPerspective', desc: '2D platformer puzzle...', img: 'GameImages/ShiftPlatformer.PNG', play: 'WebGLBuilds/ShiftPlatformer/index.html', details: 'Switch light/dark perspectives to solve puzzles.' },
-      { title: 'Coin Toss', desc: 'Isometric coin toss app...', img: 'GameImages/CoinToss.PNG', play: 'WebGLBuilds/CoinToss/index.html', details: 'Simulates a coin toss with Rigidbody physics.' }
-    ];
+  <nav class="flex items-center gap-3">
+    <button id="themeToggle" aria-label="Toggle theme" class="px-3 py-2 rounded-md glass">Toggle</button>
+    <a href="#contact" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-md">Contact</a>
+  </nav>
+</header>
 
-    const grid = document.getElementById('projectGrid');
-    function renderProjects() {
-      grid.innerHTML = '';
-      projects.forEach((p, i) => {
-        const card = document.createElement('div');
-        card.className = 'p-4 bg-slate-800 rounded-xl card-hover';
-        card.innerHTML = `
+<main class="max-w-6xl mx-auto p-6">
+  <!-- HERO -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-8">
+    <div class="md:col-span-2">
+      <h2 class="text-4xl font-extrabold leading-tight">Hi — I'm Aqib Shafiq.
+        <span class="block text-indigo-300 text-lg font-medium mt-2">Unity Developer & Game Programmer with experience in AR/VR, AI-based simulation, and digital twin technology.</span>
+      </h2>
+
+      <p class="mt-4 text-slate-300">I have diverse experience in game development, virtual automation, and simulation. I specialise in gameplay programming, Unity & Godot, VR/AR, systems design, and rapid prototyping. I’ve worked with Mercedes Benz on photorealistic digital twins, as well as shipped multiple indie projects.</p>
+
+      <div class="mt-6 flex gap-3">
+        <a href="#projects" class="px-4 py-2 bg-slate-700 rounded-md">View projects</a>
+        <a href="#cv" class="px-4 py-2 border border-slate-600 rounded-md">View CV</a>
+      </div>
+    </div>
+
+    <div class="hidden md:block p-6 bg-slate-800 rounded-2xl glass">
+      <h3 class="font-semibold">Quick stats</h3>
+      <ul class="mt-4 space-y-2 text-slate-300">
+        <li>✔️ Unity Game Developer (2018–Present)</li>
+        <li>✔️ VR/AR Development at Mercedes Benz</li>
+        <li>✔️ Master’s in Automotive Software Engineering (Chemnitz)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="mb-12">
+    <h3 class="text-2xl font-semibold mb-6">Projects</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="projectGrid"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="mt-12 p-6 bg-slate-800 rounded-2xl glass">
+    <h3 class="text-2xl font-semibold">Contact</h3>
+    <p class="text-slate-300 mt-2">Interested in collaborating? Get in touch via email or LinkedIn.</p>
+
+    <ul class="mt-4 text-slate-300 text-sm space-y-2">
+      <li><strong>Email:</strong> aqibshaïque94@gmail.com</li>
+      <li><strong>Phone:</strong> +49 1637905441</li>
+      <li><strong>Location:</strong> Stuttgart, Germany</li>
+      <li><a href="https://aqib701.github.io/" class="underline">Portfolio Website</a></li>
+    </ul>
+  </section>
+
+  <footer class="mt-10 text-sm text-slate-400">Made with ❤️ • <span id="year"></span> • Aqib Shafiq — <a href="#" class="underline">GitHub</a></footer>
+</main>
+
+<!-- MODAL -->
+<div id="modal" class="fixed inset-0 hidden items-center justify-center p-6">
+  <div id="modalBg" class="absolute inset-0 bg-black/60"></div>
+  <div class="relative z-10 max-w-4xl w-full bg-slate-900 rounded-2xl p-6">
+    <button id="modalClose" class="absolute right-4 top-4 px-3 py-1 rounded-md glass">Close</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+  const projects = [
+    { title: 'Burning Racket VR Unity', desc: 'A hypercasual VR tennis game...', img: 'GameImages/BurningRacket.gif', github: 'https://github.com/Aqib701/Burning_Racket_VR', details: 'Protect yourself from fireballs while keeping your racket cold. Endless gameplay with multiple difficulty modes.' },
+    { title: 'AR Computer Architecture', desc: 'AR app for students...', img: 'GameImages/ComputerArchitectureAR.gif', github: 'https://github.com/Aqib701/ARComputerArchitecture', details: 'Explore computer hardware internals in AR with interactive tutorials.' },
+    { title: 'Multiplayer AR', desc: 'Hypercasual 3D AR game...', img: 'GameImages/MultiplayerAR.gif', github: 'https://github.com/Aqib701/Multiplayer_AR_Unity', details: 'Matchmaking AR game where players collect coins to win.' },
+    { title: 'TempoTube', desc: 'Meet-and-greet multiplayer...', img: 'GameImages/tempotube.png', play: 'WebGLBuilds/tempotube/index.html', details: 'Video chat multiplayer experience with customizable avatars.' },
+    { title: 'Ludo Online Multiplayer', desc: 'Mobile version of Ludo...', img: 'GameImages/Ludo.PNG', details: 'Supports 4 players, Facebook login, in-game currency, and profiles.' },
+    { title: 'Crossy Jungle Animals', desc: 'Kid-friendly hypercasual...', img: 'GameImages/CrossyJungleAnimals.png', playstore: 'https://play.google.com/store/apps/details?id=com.AllOut.CrossyJungleAnimals&hl=en', details: 'Voxel-style Android game with soothing sounds and endless gameplay.' },
+    { title: 'Baby Shark Endless', desc: '2D endless game...', img: 'GameImages/BabyShark.jpg', playstore: 'https://play.google.com/store/apps/details?id=com.AllOutGames.BabySharkEndless&hl=en', details: 'Collect gems, unlock sharks, and survive obstacles.' },
+    { title: 'Car Parking Game', desc: '3D car parking challenge...', img: 'GameImages/ParkingGame.PNG', play: 'WebGLBuilds/ParkingGame/index.html', details: 'Progressively harder parking levels with unlockable cars.' },
+    { title: 'TankRift', desc: 'Story-based tank fighting...', img: 'GameImages/TankRift.PNG', play: 'WebGLBuilds/TankRift/index.html', details: 'Smooth controls and challenging missions on Android & Windows.' },
+    { title: 'RunRace', desc: 'Clone of RunRace...', img: 'GameImages/RunRace.PNG', play: 'WebGLBuilds/RunRace/index.html', details: 'Unique levels with AI-driven opponents.' },
+    { title: 'ShiftPerspective', desc: '2D platformer puzzle...', img: 'GameImages/ShiftPlatformer.PNG', play: 'WebGLBuilds/ShiftPlatformer/index.html', details: 'Switch light/dark perspectives to solve puzzles.' },
+    { title: 'Coin Toss', desc: 'Isometric coin toss app...', img: 'GameImages/CoinToss.PNG', play: 'WebGLBuilds/CoinToss/index.html', details: 'Simulates a coin toss with Rigidbody physics.' }
+  ];
+
+  const grid = document.getElementById('projectGrid');
+  function renderProjects() {
+    grid.innerHTML = '';
+    projects.forEach((p, i) => {
+      const card = document.createElement('div');
+      card.className = 'p-4 bg-slate-800 rounded-xl card-hover';
+      card.innerHTML = `
           <img src="${p.img}" alt="${p.title}" class="rounded mb-3 w-full h-40 object-cover" />
-          <h5 class="font-semibold">${p.title}</h5>
+          <h5 class="font-semibold mb-1">${p.title}</h5>
           <p class="text-sm text-slate-300 mb-3">${p.desc}</p>
-          <div class="flex gap-3">
-            <a href="${p.link}" target="_blank" class="px-3 py-1 bg-indigo-500 rounded-md text-sm">Play / GitHub</a>
-            <button class="px-3 py-1 glass rounded-md text-sm" onclick="openModal(${i})">Details</button>
+          <div class="flex flex-wrap gap-2">
+            ${p.play ? `<a href="${p.play}" target="_blank" class="btn btn-play">Play Demo</a>` : ''}
+            ${p.github ? `<a href="${p.github}" target="_blank" class="btn btn-github">Visit GitHub</a>` : ''}
+            ${p.playstore ? `<a href="${p.playstore}" target="_blank" class="btn btn-store">Play Store</a>` : ''}
+            <button class="btn glass" onclick="openModal(${i})">Details</button>
           </div>
         `;
-        grid.appendChild(card);
-      });
-    }
+      grid.appendChild(card);
+    });
+  }
 
-    function openModal(index) {
-      const p = projects[index];
-      let links = '';
-      if (p.play) links += `<a href="${p.play}" target="_blank" class=\"btn btn-play\">Play Demo</a>`;
-      if (p.github) links += `<a href="${p.github}" target="_blank" class=\"btn btn-github\">GitHub Page</a>`;
-      if (p.playstore) links += `<a href="${p.playstore}" target="_blank" class=\"btn btn-store\">Play Store</a>`;
+  function openModal(index) {
+    const p = projects[index];
+    let links = '';
+    if (p.play) links += `<a href="${p.play}" target="_blank" class=\"btn btn-play\">Play Demo</a>`;
+    if (p.github) links += `<a href="${p.github}" target="_blank" class=\"btn btn-github\">GitHub Page</a>`;
+    if (p.playstore) links += `<a href="${p.playstore}" target="_blank" class=\"btn btn-store\">Play Store</a>`;
 
-      document.getElementById('modalContent').innerHTML = `
+    document.getElementById('modalContent').innerHTML = `
         <h3 class="text-2xl font-semibold mb-2">${p.title}</h3>
         <img src="${p.img}" alt="${p.title}" class="rounded mb-4 w-full" />
         <p class="text-slate-300 mb-4">${p.details}</p>
         <div class="flex flex-wrap gap-2">${links}</div>
       `;
-      document.getElementById('modal').classList.remove('hidden');
-      document.getElementById('modal').classList.add('flex');
-    }
+    document.getElementById('modal').classList.remove('hidden');
+    document.getElementById('modal').classList.add('flex');
+  }
 
-    document.getElementById('modalClose').onclick = () => {
-      document.getElementById('modal').classList.add('hidden');
-      document.getElementById('modal').classList.remove('flex');
-    };
-    document.getElementById('modalBg').onclick = () => {
-      document.getElementById('modal').classList.add('hidden');
-      document.getElementById('modal').classList.remove('flex');
-    };
+  document.getElementById('modalClose').onclick = () => {
+    document.getElementById('modal').classList.add('hidden');
+    document.getElementById('modal').classList.remove('flex');
+  };
+  document.getElementById('modalBg').onclick = () => {
+    document.getElementById('modal').classList.add('hidden');
+    document.getElementById('modal').classList.remove('flex');
+  };
 
-    renderProjects();
-    document.getElementById('year').innerText = new Date().getFullYear();
-  </script>
+  renderProjects();
+  document.getElementById('year').innerText = new Date().getFullYear();
+</script>
 </body>
 </html>
