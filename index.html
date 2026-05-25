@@ -1,181 +1,858 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GameDev Portfolio — Aqib Shafiq</title>
-  <meta name="description" content="Portfolio of game development projects by Aqib Shafiq — gameplay, prototypes, code, demos, and build links." />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Aqib Shafiq — Unity Developer & Engineer</title>
+<meta name="description" content="Portfolio of Aqib Shafiq — Unity Developer, AR/VR Engineer, Game Programmer, Mercedes-Benz"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04080f;
+  --surface:#080f1a;
+  --surface2:#0c1623;
+  --surface3:#101d2c;
+  --accent:#00e5ff;
+  --accent2:#ff6b00;
+  --accent3:#7fff00;
+  --steel:#4a7fa5;
+  --gold:#ffc200;
+  --text:#dce8f5;
+  --muted:#5a7d9a;
+  --border:rgba(0,229,255,0.12);
+  --border2:rgba(255,107,0,0.2);
+  --font-display:'Bebas Neue',sans-serif;
+  --font-body:'Rajdhani',sans-serif;
+  --font-mono:'Share Tech Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:17px;line-height:1.6;overflow-x:hidden}
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); }
-    .card-hover:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 10px 30px rgba(2,6,23,0.4); }
-    [data-theme="dark"] { background: #061024; color: #e6eef8; }
-    .btn { padding: 0.5rem 0.75rem; border-radius: 0.5rem; font-size: 0.875rem; }
-    .btn-play { background: #4f46e5; color: white; }
-    .btn-github { background: #045692; color: #f9fafb; }
-    .btn-store { background: #16a34a; color: white; }
-  </style>
+/* ENGINEERING GRID BG — persistent */
+.eng-grid{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(0,229,255,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,229,255,0.025) 1px,transparent 1px),
+    linear-gradient(rgba(0,229,255,0.008) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,229,255,0.008) 1px,transparent 1px);
+  background-size:80px 80px,80px 80px,20px 20px,20px 20px}
+
+/* SCANLINES */
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.03) 3px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:1001}
+
+*, html{cursor:crosshair}
+a,button,select{cursor:pointer}
+
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:0.85rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(4,8,15,0.92);border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}
+.nav-logo{font-family:var(--font-display);font-size:1.7rem;color:var(--accent);letter-spacing:0.06em;text-decoration:none;display:flex;align-items:center;gap:0.5rem}
+.nav-logo-sub{font-family:var(--font-mono);font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.15em;display:block;line-height:1;margin-top:-2px}
+.nav-links{display:flex;gap:1.75rem;list-style:none;align-items:center}
+.nav-links a{font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--accent);transition:width 0.2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.lang-toggle{display:flex;background:var(--surface2);border:1px solid var(--border);overflow:hidden}
+.lang-btn{font-family:var(--font-mono);font-size:0.65rem;padding:0.35rem 0.75rem;background:none;border:none;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;transition:all 0.2s}
+.lang-btn.active{background:var(--accent);color:var(--bg);font-weight:700}
+.nav-cta{font-family:var(--font-mono);font-size:0.7rem;padding:0.45rem 1.1rem;border:1px solid var(--accent);color:var(--accent);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.2s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.nav-cta:hover{background:var(--accent);color:var(--bg)}
+
+/* ===== SHARED ===== */
+.wrap{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:2}
+section{position:relative;z-index:2}
+.section-tag{font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:0.5rem}
+.section-tag::before{content:'// '}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.5rem);letter-spacing:0.04em;line-height:1}
+.section-title .o{color:var(--accent2)}
+.section-title .c{color:var(--accent)}
+.section-divider{width:80px;height:1px;background:linear-gradient(90deg,var(--accent),transparent);margin-top:1rem;margin-bottom:3rem}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.55s,transform 0.55s}
+.reveal.visible{opacity:1;transform:none}
+
+/* ===== HERO ===== */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:8rem;padding-bottom:4rem;overflow:hidden}
+.hero-corner{position:absolute;top:6rem;right:2rem;width:320px;height:320px;opacity:0.04;background:
+  repeating-conic-gradient(from 0deg at 50% 50%,var(--accent) 0deg 1deg,transparent 1deg 30deg);border-radius:50%}
+.hero-corner2{position:absolute;bottom:2rem;left:0;width:200px;height:3px;background:linear-gradient(90deg,var(--accent2),transparent)}
+.hero-sys{font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;display:flex;align-items:center;gap:1rem}
+.hero-sys::before{content:'';width:6px;height:6px;background:var(--accent3);display:inline-block;animation:blink 1.2s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-title{font-family:var(--font-display);font-size:clamp(4.5rem,13vw,10rem);line-height:0.88;letter-spacing:0.01em;margin-bottom:1.5rem}
+.hero-title .ghost{color:transparent;-webkit-text-stroke:1px rgba(0,229,255,0.5)}
+.hero-tagline{font-size:1.1rem;color:var(--muted);max-width:580px;line-height:1.75;margin-bottom:2.5rem}
+.hero-tagline strong{color:var(--text)}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem}
+.btn-prime{font-family:var(--font-mono);font-size:0.78rem;padding:0.8rem 2.2rem;background:var(--accent2);color:var(--bg);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:opacity 0.2s;font-weight:700}
+.btn-prime:hover{opacity:0.82}
+.btn-ghost{font-family:var(--font-mono);font-size:0.78rem;padding:0.8rem 2rem;border:1px solid var(--border);color:var(--text);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.2s}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+/* STAT BAR */
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border)}
+.stat-cell{padding:1.25rem 1rem;border-right:1px solid var(--border);position:relative}
+.stat-cell:last-child{border-right:none}
+.stat-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s 0.2s}
+.stat-cell.visible::before{transform:scaleX(1)}
+.stat-n{font-family:var(--font-display);font-size:2.4rem;color:var(--accent);display:block;line-height:1}
+.stat-l{font-family:var(--font-mono);font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem}
+
+/* ===== BRIDGE SECTION — game → automotive ===== */
+#bridge{background:var(--surface);padding:5rem 0}
+.bridge-headline{font-family:var(--font-display);font-size:clamp(1.6rem,3.5vw,2.4rem);letter-spacing:0.04em;line-height:1.1;max-width:800px;margin-bottom:3rem}
+.bridge-headline .hl{color:var(--accent)}
+.bridge-headline .hl2{color:var(--accent2)}
+.bridge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-bottom:3rem}
+.bridge-card{background:var(--surface2);border:1px solid var(--border);padding:1.5rem;position:relative;overflow:hidden;transition:border-color 0.25s}
+.bridge-card:hover{border-color:var(--accent)}
+.bridge-card-arrow{position:absolute;top:50%;right:-1.5rem;transform:translateY(-50%);font-family:var(--font-mono);font-size:1.4rem;color:var(--accent2);z-index:4}
+.bridge-card.right{border-color:var(--border2);background:rgba(255,107,0,0.04)}
+.bridge-card.right:hover{border-color:var(--accent2)}
+.bc-tag{font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem}
+.bc-left .bc-tag{color:var(--accent)}
+.bc-right .bc-tag{color:var(--accent2)}
+.bc-title{font-family:var(--font-display);font-size:1.3rem;letter-spacing:0.03em;margin-bottom:0.6rem}
+.bc-body{font-size:0.92rem;color:var(--muted);line-height:1.7}
+.bridge-connector{display:flex;justify-content:center;align-items:center;gap:0;margin:0 0 3rem}
+.bridge-connector-inner{display:flex;align-items:center;gap:0;background:var(--surface2);border:1px solid var(--border);padding:0.1rem}
+.bc-pill{font-family:var(--font-mono);font-size:0.68rem;padding:0.5rem 1.25rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted)}
+.bc-pill.active{background:var(--accent);color:var(--bg);font-weight:700}
+.bc-sep{color:var(--border);padding:0 0.2rem;font-size:0.8rem}
+/* 4-domain expertise pills */
+.domains{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:2rem}
+.domain-pill{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.1rem;border:1px solid var(--border);background:var(--surface2);font-family:var(--font-mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text);transition:border-color 0.2s}
+.domain-pill:hover{border-color:var(--accent)}
+.domain-pill .dot{width:8px;height:8px;border-radius:0;display:inline-block}
+.dp-mobile .dot{background:#00e5ff}
+.dp-multi .dot{background:#7fff00}
+.dp-arvr .dot{background:#ff6b00}
+.dp-sim .dot{background:#ffc200}
+
+/* ===== SKILLS / ABOUT ===== */
+#about{padding:5rem 0}
+.about-2col{display:grid;grid-template-columns:3fr 2fr;gap:4rem;align-items:start}
+.about-body{color:var(--muted);font-size:1rem;line-height:1.8}
+.about-body p+p{margin-top:1rem}
+.about-body strong{color:var(--text)}
+.kpi-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.kpi{padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);position:relative}
+.kpi::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
+.kpi-n{font-family:var(--font-display);font-size:2rem;color:var(--accent)}
+.kpi-l{font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
+.skills-col h4{font-family:var(--font-mono);font-size:0.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.18em;margin-bottom:0.75rem;margin-top:1.5rem}
+.skills-col h4:first-child{margin-top:0}
+.skill-list{display:flex;flex-wrap:wrap;gap:0.5rem}
+.sk{font-family:var(--font-mono);font-size:0.68rem;padding:0.3rem 0.65rem;background:var(--surface2);border:1px solid var(--border);color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;transition:all 0.2s}
+.sk:hover{border-color:var(--accent);color:var(--accent)}
+.sk.hot{border-color:rgba(0,229,255,0.3);color:var(--text)}
+
+/* ===== EXPERIENCE ===== */
+#experience{background:var(--surface);padding:5rem 0}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(180deg,var(--accent) 0%,var(--accent2) 60%,transparent 100%)}
+.tl-item{position:relative;padding-bottom:3rem;opacity:0;transform:translateX(-16px);transition:opacity 0.5s,transform 0.5s}
+.tl-item.visible{opacity:1;transform:none}
+.tl-dot{position:absolute;left:-6.5px;top:6px;width:13px;height:13px;background:var(--bg);border:1.5px solid var(--accent);transform:rotate(45deg)}
+.tl-dot.orange{border-color:var(--accent2)}
+.tl-dot.dim{border-color:var(--muted)}
+.tl-meta{font-family:var(--font-mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.25rem}
+.tl-meta.orange{color:var(--accent2)}
+.tl-meta.dim{color:var(--muted)}
+.tl-co{font-family:var(--font-mono);font-size:0.7rem;color:var(--steel);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem}
+.tl-role{font-family:var(--font-display);font-size:1.55rem;letter-spacing:0.03em;margin-bottom:0.75rem}
+.tl-body{font-size:0.93rem;color:var(--muted);line-height:1.75;max-width:700px}
+.tl-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.9rem}
+.tl-tag{font-family:var(--font-mono);font-size:0.62rem;padding:0.2rem 0.55rem;border:1px solid rgba(0,229,255,0.15);color:var(--muted);text-transform:uppercase;letter-spacing:0.06em}
+.tl-tag.hot{border-color:rgba(255,107,0,0.3);color:rgba(255,107,0,0.7)}
+
+/* ===== PROJECTS ===== */
+#projects{padding:5rem 0}
+.proj-filter{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2.5rem}
+.filter-btn{font-family:var(--font-mono);font-size:0.65rem;padding:0.35rem 0.9rem;background:var(--surface);border:1px solid var(--border);color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;transition:all 0.2s}
+.filter-btn:hover,.filter-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(0,229,255,0.05)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem}
+.p-card{background:var(--surface);border:1px solid var(--border);overflow:hidden;position:relative;display:flex;flex-direction:column;transition:transform 0.28s,border-color 0.28s}
+.p-card:hover{transform:translateY(-5px);border-color:var(--accent)}
+.p-card.featured-card{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr;border-color:rgba(255,107,0,0.3)}
+.p-card.featured-card:hover{border-color:var(--accent2)}
+.p-card.featured-card .p-img{height:100%;min-height:220px}
+.feat-badge{position:absolute;top:0.8rem;right:0.8rem;font-family:var(--font-mono);font-size:0.58rem;padding:0.2rem 0.55rem;background:var(--accent2);color:var(--bg);letter-spacing:0.1em;text-transform:uppercase;z-index:3}
+.p-img{width:100%;height:170px;object-fit:cover;display:block;filter:saturate(0.6) brightness(0.75);transition:filter 0.3s}
+.p-card:hover .p-img{filter:saturate(1) brightness(0.9)}
+.p-body{padding:1.2rem;flex:1;display:flex;flex-direction:column;position:relative;z-index:2}
+.featured-card .p-body{padding:2rem}
+.p-cat{font-family:var(--font-mono);font-size:0.62rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.35rem}
+.p-cat.orange{color:var(--accent2)}
+.p-title{font-family:var(--font-display);font-size:1.25rem;letter-spacing:0.02em;margin-bottom:0.5rem;line-height:1.15}
+.featured-card .p-title{font-size:1.7rem}
+.p-desc{font-size:0.88rem;color:var(--muted);line-height:1.65;flex:1}
+.p-btns{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem}
+.pb{font-family:var(--font-mono);font-size:0.62rem;padding:0.3rem 0.75rem;text-decoration:none;text-transform:uppercase;letter-spacing:0.08em;border:1px solid;transition:all 0.2s;background:none}
+.pb-demo{border-color:var(--accent);color:var(--accent)}
+.pb-demo:hover{background:var(--accent);color:var(--bg)}
+.pb-gh{border-color:rgba(127,255,0,0.4);color:var(--accent3)}
+.pb-gh:hover{background:var(--accent3);color:var(--bg)}
+.pb-store{border-color:var(--border2);color:var(--accent2)}
+.pb-store:hover{background:var(--accent2);color:var(--bg)}
+.pb-info{border-color:var(--border);color:var(--muted)}
+.pb-info:hover{border-color:var(--muted);color:var(--text)}
+.p-card[data-cat].hidden{display:none}
+
+/* ===== CONTACT ===== */
+#contact{background:var(--surface);padding:5rem 0}
+.contact-2col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-intro{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:2rem}
+.contact-links{list-style:none;display:flex;flex-direction:column;gap:0.9rem}
+.contact-links li{display:flex;align-items:baseline;gap:0.9rem;font-family:var(--font-mono);font-size:0.8rem;padding-bottom:0.9rem;border-bottom:1px solid var(--border)}
+.cl-label{font-size:0.62rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;min-width:72px}
+.contact-links a,.contact-links span{color:var(--text);text-decoration:none;transition:color 0.2s}
+.contact-links a:hover{color:var(--accent)}
+.c-form{display:flex;flex-direction:column;gap:1rem}
+.c-label{font-family:var(--font-mono);font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;display:block;margin-bottom:0.35rem}
+.c-input,.c-textarea{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:0.75rem 1rem;font-family:var(--font-body);font-size:0.95rem;outline:none;transition:border-color 0.2s}
+.c-input:focus,.c-textarea:focus{border-color:var(--accent)}
+.c-textarea{resize:vertical;min-height:110px}
+.c-submit{font-family:var(--font-mono);font-size:0.75rem;padding:0.8rem 2rem;background:transparent;border:1px solid var(--accent2);color:var(--accent2);letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:all 0.2s;align-self:flex-start}
+.c-submit:hover{background:var(--accent2);color:var(--bg)}
+.c-ok{font-family:var(--font-mono);font-size:0.75rem;color:var(--accent3);display:none;margin-top:0.5rem}
+
+/* FOOTER */
+footer{padding:1.75rem 2rem;text-align:center;font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);border-top:1px solid var(--border);position:relative;z-index:2}
+footer a{color:var(--accent);text-decoration:none}
+
+/* MODAL */
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:2000;align-items:center;justify-content:center;padding:2rem}
+.modal-ov.open{display:flex}
+.modal-box{background:var(--surface);border:1px solid var(--border);max-width:660px;width:100%;max-height:88vh;overflow-y:auto;position:relative;padding:2rem}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--font-mono);font-size:0.65rem;padding:0.3rem 0.75rem;transition:all 0.2s}
+.modal-close:hover{border-color:var(--accent2);color:var(--accent2)}
+.modal-cat{font-family:var(--font-mono);font-size:0.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.4rem}
+.modal-title{font-family:var(--font-display);font-size:1.8rem;letter-spacing:0.03em;margin-bottom:1rem}
+.modal-img{width:100%;max-height:240px;object-fit:cover;margin-bottom:1.25rem}
+.modal-body{font-size:0.93rem;color:var(--muted);line-height:1.8;margin-bottom:1.25rem}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .about-2col,.contact-2col{grid-template-columns:1fr}
+  .p-card.featured-card{grid-template-columns:1fr}
+  .p-card.featured-card .p-img{height:200px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .stat-cell:nth-child(2){border-right:none}
+  .bridge-grid{grid-template-columns:1fr}
+  .bridge-card-arrow{display:none}
+  .nav-links{display:none}
+  .kpi-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  nav{padding:0.75rem 1rem}
+  .wrap{padding:0 1rem}
+  .proj-grid{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr 1fr}
+}
+</style>
 </head>
-<body class="min-h-screen bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-900 text-slate-100">
-<header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
-  <div class="flex items-center gap-4">
-    <div class="w-12 h-12 rounded-md bg-indigo-500 flex items-center justify-center font-bold text-white">AS</div>
-    <div>
-      <h1 class="text-xl font-semibold">Aqib Shafiq</h1>
-      <p class="text-sm text-indigo-200">Unity Developer • Programmer • Mentor</p>
+<body>
+<div class="eng-grid"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    AS
+    <span>
+      <span class="nav-logo-sub" data-en="Unity Developer · Stuttgart" data-de="Unity-Entwickler · Stuttgart">Unity Developer · Stuttgart</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#bridge" data-en="Expertise" data-de="Expertise">Expertise</a></li>
+    <li><a href="#about" data-en="About" data-de="Über mich">About</a></li>
+    <li><a href="#experience" data-en="Experience" data-de="Erfahrung">Experience</a></li>
+    <li><a href="#projects" data-en="Projects" data-de="Projekte">Projects</a></li>
+    <li><a href="#contact" data-en="Contact" data-de="Kontakt">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btnEn">EN</button>
+      <button class="lang-btn" id="btnDe">DE</button>
     </div>
+    <a href="#contact" class="nav-cta" data-en="Hire Me" data-de="Kontakt">Hire Me</a>
   </div>
+</nav>
 
-  <nav class="flex items-center gap-3">
-    <!--  <button id="themeToggle" aria-label="Toggle theme" class="px-3 py-2 rounded-md glass">Toggle</button> -->
-     <a href="#contact" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-md">Contact</a>
-   </nav>
- </header>
- 
- <main class="max-w-6xl mx-auto p-6">
-   <!-- HERO -->
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-8">
-    <div class="md:col-span-2">
-      <h2 class="text-4xl font-extrabold leading-tight">Hi — I'm Aqib Shafiq.
-        <span class="block text-indigo-300 text-lg font-medium mt-2">Unity Developer & Game Programmer with experience in AR/VR, AI-based simulation, and digital twin technology.</span>
-      </h2>
-
-      <p class="mt-4 text-slate-300">I have diverse experience in game development, virtual automation, and simulation. I specialise in gameplay programming, Unity & Godot, VR/AR, systems design, and rapid prototyping. I’ve worked with Mercedes Benz on photorealistic digital twins, as well as shipped multiple indie projects.</p>
-
-      <div class="mt-6 flex gap-3">
-        <a href="#projects" class="px-4 py-2 bg-slate-700 rounded-md">View projects</a>
-        <a href="Aqib_Shafiq_Resume.pdf" class="px-4 py-2 border border-slate-600 rounded-md">View CV</a>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-corner"></div>
+  <div class="hero-corner2"></div>
+  <div class="wrap">
+    <p class="hero-sys" data-en="SYSTEM ONLINE · UNITY DEVELOPER · STUTTGART, DE" data-de="SYSTEM AKTIV · UNITY-ENTWICKLER · STUTTGART, DE">SYSTEM ONLINE · UNITY DEVELOPER · STUTTGART, DE</p>
+    <h1 class="hero-title">AQIB<br><span class="ghost">SHAFIQ</span></h1>
+    <p class="hero-tagline" data-en="<strong>7+ years engineering interactive 3D systems</strong> — from mobile games and AR/VR applications to photorealistic digital twins and AI-powered simulation at <strong>Mercedes-Benz.</strong>" data-de="<strong>7+ Jahre Entwicklung interaktiver 3D-Systeme</strong> — von Mobile Games und AR/VR-Anwendungen bis hin zu fotorealistischen Digital Twins und KI-gestützter Simulation bei <strong>Mercedes-Benz.</strong>"></p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-prime" data-en="View Projects" data-de="Projekte ansehen">View Projects</a>
+      <a href="#bridge" class="btn-ghost" data-en="My Journey" data-de="Mein Weg">My Journey</a>
+      <a href="Aqib_Shafiq_Resume.pdf" class="btn-ghost" data-en="Download CV" data-de="Lebenslauf">Download CV</a>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat-cell">
+        <span class="stat-n">7+</span>
+        <span class="stat-l" data-en="Years in Unity" data-de="Jahre Unity">Years in Unity</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-n">14+</span>
+        <span class="stat-l" data-en="Shipped Projects" data-de="Projekte geliefert">Shipped Projects</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-n">3×</span>
+        <span class="stat-l" data-en="Mercedes-Benz Roles" data-de="Mercedes-Benz Stellen">Mercedes-Benz Roles</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-n">95%+</span>
+        <span class="stat-l" data-en="AI Inspection Accuracy" data-de="KI-Inspektionsgenauigkeit">AI Inspection Accuracy</span>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="hidden md:block p-6 bg-slate-800 rounded-2xl glass">
-      <h3 class="font-semibold">Quick stats</h3>
-      <ul class="mt-4 space-y-2 text-slate-300">
-        <li>✔️ Unity Game Developer (2018–Present)</li>
-        <li>✔️ VR/AR Development at Mercedes Benz</li>
-        <li>✔️ Master’s in Automotive Software Engineering (Chemnitz)</li>
-      </ul>
+<!-- BRIDGE: GAME DEV → AUTOMOTIVE -->
+<section id="bridge">
+  <div class="wrap" style="padding-top:5rem;padding-bottom:5rem">
+    <div class="section-tag reveal" data-en="How It Connects" data-de="Wie es zusammenhängt">How It Connects</div>
+    <h2 class="section-title reveal" style="margin-bottom:0.75rem">
+      <span data-en="From" data-de="Von">From</span> <span class="c" data-en="Game Dev" data-de="Game Dev">Game Dev</span><br>
+      <span data-en="to" data-de="zu">to</span> <span class="o" data-en="Automotive Engineering" data-de="Automotive Engineering">Automotive Engineering</span>
+    </h2>
+    <div class="section-divider"></div>
+
+    <p class="bridge-headline reveal">
+      <span data-en="Every system I built in games — " data-de="Jedes System, das ich in Spielen aufgebaut habe — ">Every system I built in games — </span><span class="hl" data-en="real-time physics, AI agents, multiplayer networking, AR/VR rendering" data-de="Echtzeit-Physik, KI-Agenten, Multiplayer-Networking, AR/VR-Rendering">real-time physics, AI agents, multiplayer networking, AR/VR rendering</span><span data-en=" — maps directly to the engineering challenges inside " data-de=" — entspricht direkt den Ingenieurherausforderungen bei "> — maps directly to the engineering challenges inside </span><span class="hl2" data-en="Mercedes-Benz digital twins, VR factory simulations, and AI quality inspection." data-de="Mercedes-Benz Digital Twins, VR-Fabriksimulationen und KI-Qualitätsprüfung.">Mercedes-Benz digital twins, VR factory simulations, and AI quality inspection.</span>
+    </p>
+
+    <div class="domains reveal">
+      <div class="domain-pill dp-mobile"><span class="dot"></span><span data-en="Mobile Game Development" data-de="Mobile-Spieleentwicklung">Mobile Game Development</span></div>
+      <div class="domain-pill dp-multi"><span class="dot"></span><span data-en="Multiplayer & Networking" data-de="Multiplayer & Netzwerk">Multiplayer & Networking</span></div>
+      <div class="domain-pill dp-arvr"><span class="dot"></span><span data-en="AR / VR Engineering" data-de="AR / VR Engineering">AR / VR Engineering</span></div>
+      <div class="domain-pill dp-sim"><span class="dot"></span><span data-en="Simulation & AI Systems" data-de="Simulation & KI-Systeme">Simulation & AI Systems</span></div>
     </div>
-  </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="mb-12">
-    <h3 class="text-2xl font-semibold mb-6">Projects</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="projectGrid"></div>
-  </section>
+    <!-- 4 bridge pairs -->
+    <div class="bridge-grid reveal" id="bridgeGrid"></div>
 
-  <!-- CONTACT -->
-  <section id="contact" class="mt-12 p-6 bg-slate-800 rounded-2xl glass">
-    <h3 class="text-2xl font-semibold">Contact</h3>
-    <p class="text-slate-300 mt-2">Interested in collaborating? Get in touch via email or LinkedIn.</p>
+    <div style="padding:1.5rem;background:var(--surface2);border:1px solid var(--border2);position:relative;overflow:hidden" class="reveal">
+      <div style="position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--accent2)"></div>
+      <p style="font-family:var(--font-mono);font-size:0.65rem;color:var(--accent2);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem" data-en="// KEY OUTCOME" data-de="// KERNERGEBNIS">// KEY OUTCOME</p>
+      <p style="font-size:1rem;color:var(--text);line-height:1.7" data-en="My game development background isn't a detour — it's the reason I could generate <strong style='color:var(--accent)'>1,000+ photorealistic training images per minute</strong>, achieve <strong style='color:var(--accent)'>95%+ AI accuracy</strong> across simulation and real-world, and reduce application file sizes by <strong style='color:var(--accent)'>30%</strong> at Mercedes-Benz. Performance, rendering, and real-time systems are what game developers do every day." data-de="Mein spieleentwicklungs-Hintergrund ist kein Umweg — er ist der Grund, warum ich <strong style='color:var(--accent)'>über 1.000 fotorealistische Trainingsbilder pro Minute</strong> generieren, eine <strong style='color:var(--accent)'>KI-Genauigkeit von über 95%</strong> in Simulation und Realwelt erzielen und die Anwendungsgröße bei Mercedes-Benz um <strong style='color:var(--accent)'>30%</strong> reduzieren konnte."></p>
+    </div>
+  </div>
+</section>
 
-    <ul class="mt-4 text-slate-300 text-sm space-y-2">
-      <li><strong>Email:</strong> aqibshaïque94@gmail.com</li>
-      <li><strong>Phone:</strong> +49 1637905441</li>
-      <li><strong>Location:</strong> Stuttgart, Germany</li>
-        <li><a href="https://www.linkedin.com/in/aqib-shafiq-506917189/" class="underline">LinkedIn</a></li> 
-     </ul>
-   </section>
- 
-   <footer class="mt-10 text-sm text-slate-400">Made with ❤️ • <span id="year"></span> • Aqib Shafiq — <a href="#" class="underline">GitHub</a></footer>
- </main>
- 
- <!-- MODAL -->
-<div id="modal" class="fixed inset-0 hidden items-center justify-center p-6">
-  <div id="modalBg" class="absolute inset-0 bg-black/60"></div>
-  <div class="relative z-10 max-w-4xl w-full bg-slate-900 rounded-2xl p-6">
-    <button id="modalClose" class="absolute right-4 top-4 px-3 py-1 rounded-md glass">Close</button>
+<!-- ABOUT / SKILLS -->
+<section id="about">
+  <div class="wrap" style="padding-top:5rem;padding-bottom:5rem">
+    <div class="section-tag reveal" data-en="Profile" data-de="Profil">Profile</div>
+    <h2 class="section-title reveal"><span data-en="About" data-de="Über mich">About</span> <span class="c" data-en="Me" data-de="">Me</span></h2>
+    <div class="section-divider"></div>
+    <div class="about-2col">
+      <div class="reveal">
+        <div class="about-body">
+          <p data-en="I'm a <strong>Unity Developer and Game Programmer</strong> based in Stuttgart, Germany, currently pursuing my Master's in Automotive Software Engineering at TU Chemnitz — while working full-time with <strong>Mercedes-Benz</strong> on VR and digital twin technology." data-de="Ich bin <strong>Unity-Entwickler und Game Programmer</strong> mit Sitz in Stuttgart, Deutschland, und studiere derzeit Automotive Software Engineering im Master an der TU Chemnitz — während ich gleichzeitig bei <strong>Mercedes-Benz</strong> an VR- und Digital-Twin-Technologie arbeite."></p>
+          <p data-en="My expertise spans the full spectrum of real-time 3D: from <strong>mobile hypercasual games and AR educational tools</strong> to <strong>multiplayer networked systems and VR training environments</strong> for automotive production." data-de="Mein Know-how umfasst das gesamte Spektrum von Echtzeit-3D: von <strong>mobilen Hypercasual-Spielen und AR-Bildungsanwendungen</strong> bis zu <strong>vernetzten Multiplayer-Systemen und VR-Trainingsumgebungen</strong> für die Automobilproduktion."></p>
+          <p data-en="I've published games on the <strong>Google Play Store</strong>, mentored CS graduates in game development, and worked across 3 consecutive roles at Mercedes-Benz, culminating in my Master Thesis on <strong>AI-based visual quality inspection using synthetic data.</strong>" data-de="Ich habe Spiele im <strong>Google Play Store</strong> veröffentlicht, Informatikabsolventen in der Spieleentwicklung betreut und in 3 aufeinanderfolgenden Positionen bei Mercedes-Benz gearbeitet, mit Abschluss meiner Masterarbeit über <strong>KI-basierte visuelle Qualitätsprüfung mittels synthetischer Daten.</strong>"></p>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi"><span class="kpi-n">30%</span><span class="kpi-l" data-en="File Size Reduction" data-de="Dateigrösse reduziert">File Size Reduction</span></div>
+          <div class="kpi"><span class="kpi-n">50%</span><span class="kpi-l" data-en="Performance Boost" data-de="Leistungssteigerung">Performance Boost</span></div>
+          <div class="kpi"><span class="kpi-n">1K+</span><span class="kpi-l" data-en="Images/Min Synthetic" data-de="Bilder/Min Synthetisch">Images/Min Synthetic</span></div>
+          <div class="kpi"><span class="kpi-n">7.5</span><span class="kpi-l" data-en="IELTS Band Score" data-de="IELTS Band Score">IELTS Band Score</span></div>
+        </div>
+      </div>
+      <div class="skills-col reveal">
+        <h4 data-en="// Core Engine" data-de="// Kern-Engine">// Core Engine</h4>
+        <div class="skill-list">
+          <span class="sk hot">Unity 3D</span><span class="sk hot">C#</span><span class="sk hot">C++</span><span class="sk">Godot</span><span class="sk">WebGL</span>
+        </div>
+        <h4 data-en="// XR & Simulation" data-de="// XR & Simulation">// XR & Simulation</h4>
+        <div class="skill-list">
+          <span class="sk hot">VR/AR</span><span class="sk hot">Digital Twin</span><span class="sk">Pico VR</span><span class="sk">ONNX</span><span class="sk">AI/ML</span>
+        </div>
+        <h4 data-en="// Art & 3D" data-de="// Art & 3D">// Art & 3D</h4>
+        <div class="skill-list">
+          <span class="sk">Blender</span><span class="sk">Autodesk Maya</span><span class="sk">3Ds Max</span><span class="sk">Photoshop</span>
+        </div>
+        <h4 data-en="// Backend & Tools" data-de="// Backend & Tools">// Backend & Tools</h4>
+        <div class="skill-list">
+          <span class="sk">Firebase</span><span class="sk">Git</span><span class="sk">Python</span><span class="sk">Java</span><span class="sk">SQL</span><span class="sk">Arduino</span>
+        </div>
+        <h4 data-en="// Languages" data-de="// Sprachen">// Languages</h4>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.5rem">
+          <div style="display:flex;justify-content:space-between;padding:0.45rem 0;border-bottom:1px solid var(--border)">
+            <span style="font-family:var(--font-mono);font-size:0.75rem" data-en="English" data-de="Englisch">English</span>
+            <span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--accent)" data-en="Advanced · C1" data-de="Fortgeschritten · C1">Advanced · C1</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.45rem 0;border-bottom:1px solid var(--border)">
+            <span style="font-family:var(--font-mono);font-size:0.75rem" data-en="German" data-de="Deutsch">German</span>
+            <span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--accent)" data-en="Intermediate · B2" data-de="Mittelstufe · B2">Intermediate · B2</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.45rem 0;border-bottom:1px solid var(--border)">
+            <span style="font-family:var(--font-mono);font-size:0.75rem" data-en="Punjabi" data-de="Punjabi">Punjabi</span>
+            <span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--accent)" data-en="Native" data-de="Muttersprache">Native</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap" style="padding-top:5rem;padding-bottom:5rem">
+    <div class="section-tag reveal" data-en="Career Timeline" data-de="Karriereverlauf">Career Timeline</div>
+    <h2 class="section-title reveal"><span data-en="Work" data-de="Beruf">Work</span> <span class="c" data-en="History" data-de="serfahrung">History</span></h2>
+    <div class="section-divider"></div>
+    <div class="timeline" id="timeline"></div>
+    <!-- EDUCATION -->
+    <div class="reveal" style="margin-top:3.5rem">
+      <p class="section-tag" style="margin-bottom:1.5rem" data-en="Education" data-de="Ausbildung">Education</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+        <div style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);position:relative">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)"></div>
+          <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem" data-en="Mar 2023 — Present" data-de="März 2023 — Heute">Mar 2023 — Present</p>
+          <h4 style="font-family:var(--font-display);font-size:1.15rem;letter-spacing:0.03em;margin-bottom:0.25rem" data-en="M.Sc. Automotive Software Engineering" data-de="M.Sc. Automotive Software Engineering">M.Sc. Automotive Software Engineering</h4>
+          <p style="font-family:var(--font-mono);font-size:0.7rem;color:var(--muted)" data-en="TU Chemnitz · Germany" data-de="TU Chemnitz · Deutschland">TU Chemnitz · Germany</p>
+        </div>
+        <div style="padding:1.5rem;background:var(--bg);border:1px solid var(--border);position:relative">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),transparent)"></div>
+          <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--accent2);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem" data-en="Oct 2015 — Nov 2019" data-de="Okt 2015 — Nov 2019">Oct 2015 — Nov 2019</p>
+          <h4 style="font-family:var(--font-display);font-size:1.15rem;letter-spacing:0.03em;margin-bottom:0.25rem" data-en="B.Sc. Software Engineering" data-de="B.Sc. Software Engineering">B.Sc. Software Engineering</h4>
+          <p style="font-family:var(--font-mono);font-size:0.7rem;color:var(--muted)" data-en="UMT · Lahore, Pakistan · Rector's Award" data-de="UMT · Lahore, Pakistan · Rektorsauszeichnung">UMT · Lahore, Pakistan · Rector's Award</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap" style="padding-top:5rem;padding-bottom:5rem">
+    <div class="section-tag reveal" data-en="Portfolio" data-de="Portfolio">Portfolio</div>
+    <h2 class="section-title reveal"><span data-en="Featured" data-de="Ausgewählte">Featured</span> <span class="c" data-en="Projects" data-de="Projekte">Projects</span></h2>
+    <div class="section-divider"></div>
+    <div class="proj-filter reveal" id="filterBar"></div>
+    <div class="proj-grid" id="projectGrid"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap" style="padding-top:5rem;padding-bottom:5rem">
+    <div class="section-tag reveal" data-en="Get in Touch" data-de="Kontakt aufnehmen">Get in Touch</div>
+    <h2 class="section-title reveal"><span data-en="Let's Build" data-de="Lass uns">Let's Build</span> <span class="o" data-en="Something." data-de="etwas bauen.">Something.</span></h2>
+    <div class="section-divider"></div>
+    <div class="contact-2col">
+      <div class="reveal">
+        <p class="contact-intro" data-en="Open to full-time roles, freelance contracts, and research collaborations in Unity, AR/VR, real-time simulation, or game development. Based in Stuttgart — available for on-site or remote work across Germany and Europe." data-de="Offen für Vollzeitstellen, Freiberuflichkeit und Forschungskooperationen in Unity, AR/VR, Echtzeitsimulation oder Spieleentwicklung. Wohnhaft in Stuttgart — verfügbar für Vor-Ort- oder Remote-Arbeit in Deutschland und Europa."></p>
+        <ul class="contact-links">
+          <li><span class="cl-label" data-en="Email" data-de="E-Mail">Email</span><a href="mailto:aqibshafique94@gmail.com">aqibshafique94@gmail.com</a></li>
+          <li><span class="cl-label" data-en="Phone" data-de="Telefon">Phone</span><span>+49 163 7905441</span></li>
+          <li><span class="cl-label" data-en="Location" data-de="Standort">Location</span><span data-en="Stuttgart, Germany" data-de="Stuttgart, Deutschland">Stuttgart, Germany</span></li>
+          <li><span class="cl-label">LinkedIn</span><a href="https://www.linkedin.com/in/aqib-shafiq-506917189/" target="_blank">aqib-shafiq-506917189</a></li>
+          <li><span class="cl-label">GitHub</span><a href="https://github.com/Aqib701" target="_blank">Aqib701</a></li>
+          <li><span class="cl-label" data-en="Portfolio" data-de="Portfolio">Portfolio</span><a href="https://aqib701.github.io/" target="_blank">aqib701.github.io</a></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <form class="c-form" onsubmit="handleForm(event)">
+          <div>
+            <label class="c-label" data-en="Name" data-de="Name">Name</label>
+            <input class="c-input" type="text" required/>
+          </div>
+          <div>
+            <label class="c-label" data-en="Email" data-de="E-Mail">Email</label>
+            <input class="c-input" type="email" required/>
+          </div>
+          <div>
+            <label class="c-label" data-en="Message" data-de="Nachricht">Message</label>
+            <textarea class="c-textarea" data-en-placeholder="Tell me about your project..." data-de-placeholder="Erzählen Sie mir von Ihrem Projekt..."></textarea>
+          </div>
+          <button type="submit" class="c-submit" data-en="Send Message" data-de="Nachricht senden">Send Message</button>
+          <p class="c-ok" id="formOk" data-en="✓ Message sent! I'll be in touch soon." data-de="✓ Nachricht gesendet! Ich melde mich bald.">✓ Message sent! I'll be in touch soon.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><span data-en="Designed & built by" data-de="Gestaltet & entwickelt von">Designed & built by</span> <a href="#">Aqib Shafiq</a> · Stuttgart, Germany · <span id="yr"></span> · <a href="https://aqib701.github.io/" target="_blank">aqib701.github.io</a></p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-ov" id="modal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">✕ Close</button>
     <div id="modalContent"></div>
   </div>
 </div>
 
 <script>
-  const projects = [
-
-
-    { title: 'Master Thesis in Photorealistic Data Generation from the Digital Twin for AI-Based Visual Quality Inspection', desc: 'CAD Data to AI Models...', img: 'GameImages/MercedesBenz.jpg',
-      details: 'A Program which uses CAD models to create a digital twin for simulating Robots using real world data. Makes High-quality images using Unity to train AI for visual inspection and exporting the result in ONNYX format. Testing the trained AI Model within a digital twin environment in unity to validate performance. The Trained AI Model Trained on Synthetic data can be used in Real Life Machines for Quality Inspections.' },
-
-
-    { title: 'Unity VR/AR Internship in Digitization department', desc: 'Developed interactive VR experiences...', img: 'GameImages/MercedesBenz.jpg',
-      details: 'Developed an Interactive VR experiences for virtual factory worker simulations, Developed Robust and well documented system in unity to Import CAD data into readymade Optimized environments with AI NPCs. Hierarchy System and Kinematics with easy accessibility. Optimized performance and enhanced UX using C# programming. Developed and Optimised Builds for WebGL and Windows platforms. ' },
-          
-    { title: 'Burning Racket VR Unity', desc: 'A hypercasual VR tennis game...', img: 'GameImages/BurningRacket.gif',
-      github: 'https://github.com/Aqib701/Burning_Racket_VR', details: 'A hypercasual VR tennis game where you must protect yourself from oncoming burning fireballs while keeping your racket cold, featuring single-player endless gameplay with easy and hard modes, focused on achieving the highest score possible.' },
-    { title: 'AR Computer Architecture', desc: 'AR app for students...', img: 'GameImages/ComputerArchitectureAR.gif',
-      github: 'https://github.com/Aqib701/ARComputerArchitecture', details: 'An Windows application for university students to explore computer hardware internals with interactive tutorials allowing them to also observe components using AR.' },
-    { title: 'Multiplayer AR', desc: 'Hypercasual 3D AR game...', img: 'GameImages/MultiplayerAR.gif',
-      github: 'https://github.com/Aqib701/Multiplayer_AR_Unity', details: 'A Hypercasual 3D AR game with player connectivity for matchmaking,players join match and control their respective cubes the main objective is to collect most coins.Whoever collects, first wins.' },
-    { title: 'TempoTube', desc: 'Meet-and-greet multiplayer...', img: 'GameImages/tempotube.png', 
-      play: 'WebGLBuilds/tempotube/index.html', details: 'An online meet-and-greet game that features integrated video call functionality. Users can create or join virtual rooms to chat and interact with others. The game also allows players to customize their experience by choosing unique avatars and display names for their characters.' },
-    { title: 'Ludo Online Multiplayer', desc: 'Mobile version of Ludo...', img: 'GameImages/Ludo.PNG',
-      details: 'A mobile game version of Extremly popular Soth Asian Board Game called Ludo.Which can be played with upto 4 people at once!<br>The game supports both offline and online multiplayer modes along with facebook account logins and In-game currency system As well as Profile system for both Guest Accounts and Facebook Accounts which can be logged in through game for extra Bonus and Custom in-game Profiles!' },
-    { title: 'Crossy Jungle Animals', desc: 'Kid-friendly hypercasual...', img: 'GameImages/CrossyJungleAnimals.png',
-      play: 'WebGLBuilds/CroosyJungleAnimals/index.html',playstore: 'https://play.google.com/store/apps/details?id=com.AllOut.CrossyJungleAnimals&hl=en', details: 'An isometric Childern friendly HyperCasual Android Game with voxel graphics and soothing sounds already hosted on Google Play.' },
-    { title: 'Baby Shark Endless', desc: '2D endless game...', img: 'GameImages/BabyShark.jpg',
-      playstore: 'https://play.google.com/store/apps/details?id=com.AllOutGames.BabySharkEndless&hl=en', details: 'A 2D easy to play game specially for childern.Player has to collect gems and unlock new sharks and save itself from colliding with hurldes in an endless level.' },
-    { title: 'Car Parking Game', desc: '3D car parking challenge...', img: 'GameImages/ParkingGame.PNG',
-      play: 'WebGLBuilds/ParkingGame/index.html', details: 'A Challenging 3D Car Game where player has to park their car through challenging levels, which get harder as the game progresses.Player can buy new cars with coins earned by completing levels.' },
-    { title: 'TankRift', desc: 'Story-based tank fighting...', img: 'GameImages/TankRift.PNG',
-      play: 'WebGLBuilds/TankRift/index.html', details: 'A story driven 3D tank game having smooth controls and different missions with changing level of difficulties, made for both Android and Windows using Unity"s cross platform inputs for both PC and Mobile devices.' },
-    { title: 'RunRace', desc: 'Clone of RunRace...', img: 'GameImages/RunRace.PNG',
-      play: 'WebGLBuilds/RunRace/index.html', details: 'Android Based game developed using Unity 2018. Its a clone of famous game Runrace using simple and free assets from unity asset store with complex and challenging probably based opponents with unique and non linear level designs.' },
-    { title: 'ShiftPerspective', desc: '2D platformer puzzle...', img: 'GameImages/ShiftPlatformer.PNG',
-      play: 'WebGLBuilds/ShiftPlatformer/index.html', details: 'A simple yet innovative 2D platformer with light/dark perspective mechanics that can be switched according to the puzzle of given lavel.Which make the game exciting, fun to play and unique from rest of its counterparts.' },
-    { title: 'Coin Toss', desc: 'Isometric coin toss app...', img: 'GameImages/CoinToss.PNG',
-      play: 'WebGLBuilds/CoinToss/index.html', details: 'A simple isometric Android application which exhibit heads/Tails Randomly using unitys Rigidbody Physics.' }
-  ];
-
-  const grid = document.getElementById('projectGrid');
-  function renderProjects() {
-    grid.innerHTML = '';
-    projects.forEach((p, i) => {
-      const card = document.createElement('div');
-      card.className = 'p-4 bg-slate-800 rounded-xl card-hover';
-      card.innerHTML = `
-          <img src="${p.img}" alt="${p.title}" class="rounded mb-3 w-full h-40 object-cover" />
-          <h5 class="font-semibold mb-1">${p.title}</h5>
-          <p class="text-sm text-slate-300 mb-3">${p.desc}</p>
-          <div class="flex flex-wrap gap-2">
-            ${p.play ? `<a href="${p.play}" target="_blank" class="btn btn-play">Play Demo</a>` : ''}
-            ${p.github ? `<a href="${p.github}" target="_blank" class="btn btn-github">Visit GitHub</a>` : ''}
-            ${p.playstore ? `<a href="${p.playstore}" target="_blank" class="btn btn-store">Play Store</a>` : ''}
-            <button class="btn glass" onclick="openModal(${i})">Details</button>
-          </div>
-        `;
-      grid.appendChild(card);
-    });
+/* ===================== DATA ===================== */
+const bridgeData = [
+  {
+    leftTag:{en:'Game Expertise',de:'Spielerfahrung'},
+    leftTitle:{en:'Mobile & Hypercasual Games',de:'Mobile & Hypercasual Games'},
+    leftBody:{en:'Published 5+ Android titles (Crossy Jungle Animals, Baby Shark Endless, Ludo, Car Parking). Mastered performance budgets, GPU instancing, asset streaming, and 60fps targets on constrained hardware.',de:'5+ Android-Titel veröffentlicht. Meisterschaft in Performance-Budgets, GPU-Instancing, Asset-Streaming und 60fps auf begrenzter Hardware.'},
+    rightTag:{en:'Automotive Application',de:'Automotive-Anwendung'},
+    rightTitle:{en:'Real-Time Performance Optimization',de:'Echtzeit-Performanceoptimierung'},
+    rightBody:{en:'At Mercedes-Benz: reduced VR application file sizes by 30% and boosted runtime performance by 50% — using the exact same optimization instincts honed across mobile game constraints.',de:'Bei Mercedes-Benz: VR-Anwendungsgrösse um 30% reduziert und Laufzeitleistung um 50% gesteigert — mit denselben Optimierungsinstinkten aus mobilen Spielen.'}
+  },
+  {
+    leftTag:{en:'Game Expertise',de:'Spielerfahrung'},
+    leftTitle:{en:'Multiplayer & Networking Systems',de:'Multiplayer & Netzwerksysteme'},
+    leftBody:{en:'Built live multiplayer games (Warside FPS, Ludo Online, TempoTube meet-and-greet) with matchmaking, real-time sync, Firebase backend, custom room management, and avatar systems.',de:'Live-Multiplayer-Spiele gebaut (Warside FPS, Ludo Online, TempoTube) mit Matchmaking, Echtzeit-Sync, Firebase-Backend und individuellem Raummanagement.'},
+    rightTag:{en:'Automotive Application',de:'Automotive-Anwendung'},
+    rightTitle:{en:'Multi-User VR Factory Simulation',de:'Multi-User-VR-Fabriksimulation'},
+    rightBody:{en:'Developed collaborative VR environments for factory worker training at Mercedes-Benz Sindelfingen — where multi-user synchronisation is mission-critical, not a game feature.',de:'Entwicklung kollaborativer VR-Umgebungen für Fabrikarbeiter-Schulungen bei Mercedes-Benz Sindelfingen — wo Multi-User-Synchronisation geschäftskritisch ist.'}
+  },
+  {
+    leftTag:{en:'Game Expertise',de:'Spielerfahrung'},
+    leftTitle:{en:'Augmented Reality Development',de:'Augmented Reality Entwicklung'},
+    leftBody:{en:'Built AR Computer Architecture (educational hardware explorer) and Multiplayer AR coin game — both using marker detection, spatial anchoring, and real-world surface mapping in Unity.',de:'AR Computer Architecture (Bildungs-Hardware-Explorer) und Multiplayer AR Coin-Spiel entwickelt — mit Markererkennung, Spatial Anchoring und Oberflächenmapping.'},
+    rightTag:{en:'Automotive Application',de:'Automotive-Anwendung'},
+    rightTitle:{en:'AR Quality Inspection & Design Review',de:'AR Qualitätsprüfung & Design-Review'},
+    rightBody:{en:'AR spatial reasoning and real-world overlay skills translate directly to automotive AR inspection tools, design validation overlays, and mixed reality assembly guidance systems.',de:'AR-Kenntnisse übertragen sich direkt auf automotive AR-Prüfwerkzeuge, Design-Validierungsüberlagerungen und Mixed-Reality-Montageanleitung.'}
+  },
+  {
+    leftTag:{en:'Game Expertise',de:'Spielerfahrung'},
+    leftTitle:{en:'AI Agents & Simulation Systems',de:'KI-Agenten & Simulationssysteme'},
+    leftBody:{en:'Implemented probabilistic AI opponents (RunRace), NPC pathfinding, game state machines, and ShiftPerspective puzzle logic — engineering systems that behave predictably under complex rule sets.',de:'Probabilistische KI-Gegner (RunRace), NPC-Pathfinding, Zustandsautomaten und ShiftPerspective-Puzzle-Logik implementiert.'},
+    rightTag:{en:'Automotive Application',de:'Automotive-Anwendung'},
+    rightTitle:{en:'AI Visual Quality Inspection (Master Thesis)',de:'KI Visuelle Qualitätsprüfung (Masterarbeit)'},
+    rightBody:{en:'Generated 1,000+ synthetic training images/min in Unity. Trained ONNX models achieving 95%+ accuracy for robotic visual inspection — validated across both digital twin and real production environments.',de:'Über 1.000 synthetische Trainingsbilder/Min in Unity generiert. ONNX-Modelle mit über 95% Genauigkeit trainiert — validiert in Digital Twin und realer Produktion.'}
   }
+];
 
-  function openModal(index) {
-    const p = projects[index];
-    let links = '';
-    if (p.play) links += `<a href="${p.play}" target="_blank" class=\"btn btn-play\">Play Demo</a>`;
-    if (p.github) links += `<a href="${p.github}" target="_blank" class=\"btn btn-github\">GitHub Page</a>`;
-    if (p.playstore) links += `<a href="${p.playstore}" target="_blank" class=\"btn btn-store\">Play Store</a>`;
-
-    document.getElementById('modalContent').innerHTML = `
-        <h3 class="text-2xl font-semibold mb-2">${p.title}</h3>
-        <img src="${p.img}" alt="${p.title}" class="rounded mb-4 w-fullw-full" height="300px" width="300px" />
-        <p class="text-slate-300 mb-4">${p.details}</p>
-        <div class="flex flex-wrap gap-2">${links}</div>
-      `;
-    document.getElementById('modal').classList.remove('hidden');
-    document.getElementById('modal').classList.add('flex');
+const expData = [
+  {
+    date:{en:'Jan 2026 — Present',de:'Jan 2026 — Heute'},
+    dateColor:'accent',
+    company:'Mercedes-Benz AG · Sindelfingen',
+    role:{en:'Working Student — VR Development',de:'Werkstudent — VR-Entwicklung'},
+    body:{en:'Developing immersive VR solutions for automotive applications using real production data. Building and optimizing Unity packages, integrating virtual environments for design review, process simulation, and real-time testing. Collaborating with cross-functional engineering teams to troubleshoot and ship new features.',de:'Entwicklung immersiver VR-Lösungen für Automotive-Anwendungen mit realen Produktionsdaten. Aufbau und Optimierung von Unity-Paketen, Integration virtueller Umgebungen für Design-Review und Echtzeit-Tests. Zusammenarbeit mit interdisziplinären Ingenieurteams.'},
+    tags:['Unity 3D','VR','C#','Digital Twin','Performance']
+  },
+  {
+    date:{en:'May 2025 — Nov 2025',de:'Mai 2025 — Nov 2025'},
+    dateColor:'accent',
+    company:'Mercedes-Benz AG · Stuttgart',
+    role:{en:'Master Thesis — AI Visual Quality Inspection',de:'Masterarbeit — KI-Visuelle Qualitätsprüfung'},
+    body:{en:'Integrated CAD models into high-fidelity digital twins simulating robotic operations. Generated 1,000+ photorealistic synthetic images per minute for AI training in Unity. Exported in ONNX format; achieved 95%+ accuracy in simulation and real-world. Deployed cross-platform standalone for Windows & Linux.',de:'CAD-Modelle in hochauflösende Digital Twins für Robotersimulation integriert. 1.000+ fotorealistische synthetische Bilder/Min für KI-Training in Unity generiert. ONNX-Export; über 95% Genauigkeit in Simulation und Realwelt. Plattformübergreifend für Windows & Linux deployed.'},
+    tags:['ONNX','AI/ML','CAD','Synthetic Data','Windows','Linux'],
+    hotTags:['ONNX','AI/ML','Synthetic Data']
+  },
+  {
+    date:{en:'Sep 2024 — Mar 2025',de:'Sep 2024 — März 2025'},
+    dateColor:'accent',
+    company:'Mercedes-Benz AG · Stuttgart',
+    role:{en:'Internship — Unity / VR / AR, Digitalization',de:'Praktikum — Unity / VR / AR, Digitalisierung'},
+    body:{en:'Developed VR factory worker training simulations. Optimized performance: −30% file size, +50% runtime speed. Integrated VR headsets/controllers for realistic training. Deployed for WebGL, Windows, and Pico VR (Android).',de:'VR-Schulungssimulationen für Fabrikarbeiter entwickelt. Leistungsoptimierung: −30% Dateigrösse, +50% Laufzeitgeschwindigkeit. VR-Headsets/Controller integriert. Deployed für WebGL, Windows und Pico VR (Android).'},
+    tags:['Pico VR','WebGL','C#','Performance','AR','Android'],
+    hotTags:['Pico VR','WebGL']
+  },
+  {
+    date:{en:'Jul 2021 — Jan 2024',de:'Jul 2021 — Jan 2024'},
+    dateColor:'orange',
+    company:'High on Tech',
+    role:{en:'Unity Game Developer',de:'Unity Game Developer'},
+    body:{en:'Shipped 3D, AR/VR, and 2D applications for international clients. Built HN-Metaverse (Germany open world platform), Warside FPS Battle Royale, Ludo Online Multiplayer. Specialised in gameplay AI, optimisation, and cross-platform builds.',de:'3D-, AR/VR- und 2D-Anwendungen für internationale Kunden entwickelt. HN-Metaverse (Germany Open World), Warside FPS Battle Royale, Ludo Online Multiplayer gebaut. Spezialisiert auf Gameplay-KI und Cross-Platform-Builds.'},
+    tags:['Unity','Multiplayer','AR/VR','Mobile','Firebase','C#']
+  },
+  {
+    date:{en:'Jun 2020 — Jul 2021',de:'Jun 2020 — Jul 2021'},
+    dateColor:'dim',
+    company:{en:'UMT · Lahore',de:'UMT · Lahore'},
+    role:{en:'Lab Engineer',de:'Laboringenieur'},
+    body:{en:'Taught C, Python, SQL, and C# to up to 50 students per session. Provided personalised feedback and guided students through interactive coding labs.',de:'C, Python, SQL und C# an bis zu 50 Studierenden pro Sitzung unterrichtet. Persönliches Feedback und interaktive Programmierlabs geleitet.'},
+    tags:['Teaching','Python','C#','SQL']
+  },
+  {
+    date:{en:'Feb 2018 — Mar 2020',de:'Feb 2018 — März 2020'},
+    dateColor:'dim',
+    company:'GameTrain',
+    role:{en:'Unity 3D Instructor & Mentor',de:'Unity 3D Dozent & Mentor'},
+    body:{en:'Trained CS graduates in Unity 3D. Led project teams from concept to shipped mobile game. Provided industry placement mentorship for graduates entering game development.',de:'Informatikabsolventen in Unity 3D ausgebildet. Projektteams von der Idee bis zum fertigen Mobilspiel geleitet. Branchenplatzierungs-Mentoring für Absolventen.'},
+    tags:['Mentorship','Unity','Mobile','Project Management']
   }
+];
 
-  document.getElementById('modalClose').onclick = () => {
-    document.getElementById('modal').classList.add('hidden');
-    document.getElementById('modal').classList.remove('flex');
-  };
-  document.getElementById('modalBg').onclick = () => {
-    document.getElementById('modal').classList.add('hidden');
-    document.getElementById('modal').classList.remove('flex');
-  };
+const projects = [
+  {
+    featured:true,
+    cat:{en:'Digital Twin · AI · Mercedes-Benz',de:'Digital Twin · KI · Mercedes-Benz'},
+    catClass:'orange',
+    filter:'simulation',
+    title:{en:'Master Thesis — AI Visual Quality Inspection',de:'Masterarbeit — KI Visuelle Qualitätsprüfung'},
+    desc:{en:'CAD-to-AI pipeline generating 1,000+ synthetic images/min. ONNX models achieving 95%+ accuracy across simulation and real production environments. Cross-platform Windows & Linux deployment.',de:'CAD-zu-KI-Pipeline mit 1.000+ synthetischen Bildern/Min. ONNX-Modelle mit 95%+ Genauigkeit in Simulation und Realproduktion. Windows & Linux.'},
+    img:'GameImages/MercedesBenz.jpg',
+    details:{en:'Integrated CAD models into high-fidelity digital twins simulating robotic operations using real-world data. Utilized Unity to generate over 1,000 high-quality photorealistic images per minute for AI model training. Exported results in ONNX format. Validated AI model performance in digital twin environment, achieving above 95% accuracy in both 3D simulation and real-world scenarios. Deployed as standalone executable for Windows and Linux.',de:'CAD-Modelle in hochauflösende Digital Twins für Robotersimulation integriert. Über 1.000 fotorealistische Bilder/Min für KI-Training generiert. ONNX-Export. 95%+ Genauigkeit in Simulation und Realwelt validiert. Plattformübergreifend deployed.'}
+  },
+  {
+    cat:{en:'VR · Internship · Mercedes-Benz',de:'VR · Praktikum · Mercedes-Benz'},
+    catClass:'orange',
+    filter:'arvr',
+    title:{en:'VR Factory Worker Simulation',de:'VR Fabrikarbeiter-Simulation'},
+    desc:{en:'Interactive VR training for automotive factory workers. −30% file size, +50% performance. Pico VR, WebGL & Android deployments.',de:'Interaktives VR-Training für Fabrikarbeiter. −30% Dateigrösse, +50% Leistung. Pico VR, WebGL & Android.'},
+    img:'GameImages/MercedesBenz.jpg',
+    details:{en:'Developed interactive VR simulations for training new factory workers. Leveraged C# and Unity to optimize application performance, reducing file size by 30% and boosting performance by 50%. Integrated VR hardware for realistic simulations. Deployed for WebGL, Windows, and Android (Pico VR).',de:'Interaktive VR-Simulationen für Fabrikarbeiter-Schulungen entwickelt. C# und Unity zur Optimierung genutzt: −30% Dateigrösse, +50% Leistung. VR-Hardware integriert. WebGL, Windows und Pico VR deployed.'}
+  },
+  {
+    cat:{en:'VR · Game',de:'VR · Spiel'},
+    filter:'arvr',
+    title:{en:'Burning Racket VR',de:'Burning Racket VR'},
+    desc:{en:'Hypercasual VR tennis. Deflect fireballs while keeping your racket cool. Endless single-player with Easy/Hard modes.',de:'Hypercasual VR-Tennis. Feuerbälle abwehren. Endlos-Einzelspieler mit leichten/schweren Modi.'},
+    img:'GameImages/BurningRacket.gif',
+    github:'https://github.com/Aqib701/Burning_Racket_VR',
+    details:{en:'A hypercasual VR tennis game where you must protect yourself from oncoming burning fireballs while keeping your racket cold. Single-player endless gameplay with Easy and Hard modes.',de:'Hypercasual VR-Tennis, bei dem man Feuerbälle abwehrt und den Schläger kühl hält. Einzelspieler-Endlosmodus mit leichten und schweren Stufen.'}
+  },
+  {
+    cat:{en:'AR · Education',de:'AR · Bildung'},
+    filter:'arvr',
+    title:{en:'AR Computer Architecture',de:'AR Computerarchitektur'},
+    desc:{en:'Windows AR app for university students to explore computer hardware internals with interactive tutorials.',de:'Windows-AR-App für Studierende zur Erkundung von Computer-Hardware mit interaktiven Tutorials.'},
+    img:'GameImages/ComputerArchitectureAR.gif',
+    github:'https://github.com/Aqib701/ARComputerArchitecture',
+    details:{en:'A Windows application for university students to explore computer hardware internals with interactive tutorials, using augmented reality to observe real components.',de:'Windows-Anwendung für Studierende zur Erkundung von Computer-Hardware mit interaktiven AR-Tutorials.'}
+  },
+  {
+    cat:{en:'AR · Multiplayer',de:'AR · Multiplayer'},
+    filter:'multiplayer',
+    title:{en:'Multiplayer AR',de:'Multiplayer AR'},
+    desc:{en:'3D AR coin collection game with real-time matchmaking. Players control cubes in shared AR space.',de:'3D-AR-Münzsammelspiel mit Echtzeit-Matchmaking. Spieler steuern Würfel im gemeinsamen AR-Raum.'},
+    img:'GameImages/MultiplayerAR.gif',
+    github:'https://github.com/Aqib701/Multiplayer_AR_Unity',
+    details:{en:'A hypercasual 3D AR game with player connectivity for matchmaking. Players join a match and control their respective cubes in augmented reality space.',de:'Hypercasual 3D-AR-Spiel mit Matchmaking. Spieler steuern Würfel im gemeinsamen AR-Raum.'}
+  },
+  {
+    cat:{en:'Multiplayer · Social · WebGL',de:'Multiplayer · Social · WebGL'},
+    filter:'multiplayer',
+    title:{en:'TempoTube',de:'TempoTube'},
+    desc:{en:'Online meet-and-greet game with integrated video calls. Create rooms, pick avatars, chat live.',de:'Online-Meet-and-Greet-Spiel mit integrierten Videoanrufen. Räume erstellen, Avatare wählen, live chatten.'},
+    img:'GameImages/tempotube.png',
+    play:'WebGLBuilds/tempotube/index.html',
+    details:{en:'An online meet-and-greet game featuring integrated video call functionality. Users create or join virtual rooms with custom avatars and display names.',de:'Online-Meet-and-Greet-Spiel mit integrierten Videoanrufen. Benutzerdefinierte Avatare und Anzeigenamen.'}
+  },
+  {
+    cat:{en:'Mobile · Board Game · Multiplayer',de:'Mobile · Brettspiel · Multiplayer'},
+    filter:'mobile',
+    title:{en:'Ludo Online Multiplayer',de:'Ludo Online Multiplayer'},
+    desc:{en:'South Asian board game for up to 4 players. Online & offline multiplayer, Facebook login, in-game currency.',de:'Südostasiatisches Brettspiel für bis zu 4 Spieler. Online- & Offline-Multiplayer, Facebook-Login, In-Game-Währung.'},
+    img:'GameImages/Ludo.PNG',
+    details:{en:'A mobile version of the popular South Asian board game Ludo. Supports offline and online multiplayer, Facebook account login, in-game currency, and profile systems.',de:'Mobile-Version des beliebten südostasiatischen Brettspiels Ludo. Offline- und Online-Multiplayer, Facebook-Login, In-Game-Währung.'}
+  },
+  {
+    cat:{en:'Mobile · Hypercasual · Play Store',de:'Mobile · Hypercasual · Play Store'},
+    filter:'mobile',
+    title:{en:'Crossy Jungle Animals',de:'Crossy Jungle Animals'},
+    desc:{en:'Kid-friendly isometric voxel game. Published on Google Play Store.',de:'Kinderfreundliches isometrisches Voxel-Spiel. Im Google Play Store verfügbar.'},
+    img:'GameImages/CrossyJungleAnimals.png',
+    play:'WebGLBuilds/CroosyJungleAnimals/index.html',
+    playstore:'https://play.google.com/store/apps/details?id=com.AllOut.CrossyJungleAnimals&hl=en',
+    details:{en:'An isometric children-friendly hypercasual Android game with voxel graphics and soothing sounds. Available on Google Play Store.',de:'Isometrisches, kinderfreundliches Hypercasual-Android-Spiel mit Voxel-Grafik. Im Google Play Store.'}
+  },
+  {
+    cat:{en:'Mobile · 2D · Play Store',de:'Mobile · 2D · Play Store'},
+    filter:'mobile',
+    title:{en:'Baby Shark Endless',de:'Baby Shark Endless'},
+    desc:{en:'2D endless runner for kids. Collect gems, unlock sharks, dodge obstacles.',de:'2D-Endlos-Runner für Kinder. Edelsteine sammeln, Haie freischalten, Hindernisse ausweichen.'},
+    img:'GameImages/BabyShark.jpg',
+    playstore:'https://play.google.com/store/apps/details?id=com.AllOutGames.BabySharkEndless&hl=en',
+    details:{en:'A 2D easy-to-play game for children. Collect gems, unlock new sharks, avoid obstacles in an endless level.',de:'2D-Spiel für Kinder. Edelsteine sammeln, neue Haie freischalten, Hindernissen ausweichen.'}
+  },
+  {
+    cat:{en:'WebGL · 3D · Driving',de:'WebGL · 3D · Fahren'},
+    filter:'simulation',
+    title:{en:'Car Parking Game',de:'Parkspiel'},
+    desc:{en:'Challenging 3D parking game. Progressively harder levels, earn coins, unlock cars.',de:'Herausforderndes 3D-Parkspiel. Schwieriger werdende Level, Münzen verdienen, Autos freischalten.'},
+    img:'GameImages/ParkingGame.PNG',
+    play:'WebGLBuilds/ParkingGame/index.html',
+    details:{en:'A 3D car game where the player must park through increasingly challenging levels. Earn coins and buy new cars.',de:'3D-Parkspiel mit zunehmend schwierigeren Levels. Münzen verdienen und neue Autos kaufen.'}
+  },
+  {
+    cat:{en:'WebGL · 3D · Action',de:'WebGL · 3D · Action'},
+    filter:'mobile',
+    title:{en:'TankRift',de:'TankRift'},
+    desc:{en:'Story-driven 3D tank combat. Multiple missions with escalating difficulty. Cross-platform PC & mobile inputs.',de:'Story-getriebener 3D-Panzerkampf. Mehrere Missionen, eskalierender Schwierigkeitsgrad. PC & Mobile.'},
+    img:'GameImages/TankRift.PNG',
+    play:'WebGLBuilds/TankRift/index.html',
+    details:{en:'A story-driven 3D tank game with smooth controls and different missions with escalating difficulty, built for Android and Windows.',de:'Story-getriebenes 3D-Panzerspiel mit glatten Steuerungen und verschiedenen Missionen für Android und Windows.'}
+  },
+  {
+    cat:{en:'WebGL · 2D · Puzzle',de:'WebGL · 2D · Puzzle'},
+    filter:'mobile',
+    title:{en:'ShiftPerspective',de:'ShiftPerspective'},
+    desc:{en:'2D platformer with light/dark perspective-switching mechanics. Unique puzzle gameplay.',de:'2D-Plattformer mit Hell/Dunkel-Perspektivwechsel. Einzigartiges Rätselsystem.'},
+    img:'GameImages/ShiftPlatformer.PNG',
+    play:'WebGLBuilds/ShiftPlatformer/index.html',
+    details:{en:'A 2D platformer with light/dark perspective mechanics that can be switched to solve each level\'s puzzles.',de:'2D-Plattformer mit Hell/Dunkel-Perspektivmechanik zur Lösung von Level-Rätseln.'}
+  }
+];
 
+/* ===================== LANG ===================== */
+let lang = 'en';
+function setLang(l){
+  lang=l;
+  document.documentElement.lang=l==='de'?'de':'en';
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const val=el.getAttribute('data-'+l);
+    if(val===null)return;
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=val}
+    else{el.innerHTML=val}
+  });
+  document.querySelectorAll('[data-en-placeholder]').forEach(el=>{
+    el.placeholder=el.getAttribute('data-'+l+'-placeholder')||el.getAttribute('data-en-placeholder');
+  });
+  document.getElementById('btnEn').classList.toggle('active',l==='en');
+  document.getElementById('btnDe').classList.toggle('active',l==='de');
+  document.getElementById('modalClose').textContent=l==='de'?'✕ Schließen':'✕ Close';
+  renderAll();
+}
+document.getElementById('btnEn').onclick=()=>setLang('en');
+document.getElementById('btnDe').onclick=()=>setLang('de');
+
+/* ===================== BRIDGE CARDS ===================== */
+function renderBridge(){
+  const g=document.getElementById('bridgeGrid');
+  g.innerHTML='';
+  bridgeData.forEach(b=>{
+    g.innerHTML+=`
+    <div class="bridge-card bc-left" style="position:relative">
+      <p class="bc-tag">${b.leftTag[lang]}</p>
+      <h4 class="bc-title">${b.leftTitle[lang]}</h4>
+      <p class="bc-body">${b.leftBody[lang]}</p>
+      <div class="bridge-card-arrow">→</div>
+    </div>
+    <div class="bridge-card bc-right right">
+      <p class="bc-tag">${b.rightTag[lang]}</p>
+      <h4 class="bc-title">${b.rightTitle[lang]}</h4>
+      <p class="bc-body">${b.rightBody[lang]}</p>
+    </div>`;
+  });
+}
+
+/* ===================== TIMELINE ===================== */
+function renderTimeline(){
+  const tl=document.getElementById('timeline');
+  tl.innerHTML='';
+  expData.forEach(e=>{
+    const dc=e.dateColor;
+    const coText=typeof e.company==='object'?e.company[lang]:e.company;
+    tl.innerHTML+=`
+    <div class="tl-item">
+      <div class="tl-dot ${dc}"></div>
+      <p class="tl-meta ${dc}">${e.date[lang]}</p>
+      <p class="tl-co">${coText}</p>
+      <h3 class="tl-role">${e.role[lang]}</h3>
+      <p class="tl-body">${e.body[lang]}</p>
+      <div class="tl-tags">
+        ${e.tags.map(t=>`<span class="tl-tag ${(e.hotTags||[]).includes(t)?'hot':''}">${t}</span>`).join('')}
+      </div>
+    </div>`;
+  });
+  document.querySelectorAll('.tl-item').forEach(el=>revObs.observe(el));
+}
+
+/* ===================== PROJECTS ===================== */
+const filters=[
+  {key:'all',en:'All',de:'Alle'},
+  {key:'simulation',en:'Simulation / Automotive',de:'Simulation / Automotive'},
+  {key:'arvr',en:'AR / VR',de:'AR / VR'},
+  {key:'multiplayer',en:'Multiplayer',de:'Multiplayer'},
+  {key:'mobile',en:'Mobile / Games',de:'Mobile / Spiele'}
+];
+let activeFilter='all';
+function renderFilterBar(){
+  const bar=document.getElementById('filterBar');
+  bar.innerHTML='';
+  filters.forEach(f=>{
+    const btn=document.createElement('button');
+    btn.className='filter-btn'+(activeFilter===f.key?' active':'');
+    btn.textContent=f[lang];
+    btn.onclick=()=>{activeFilter=f.key;renderProjects();renderFilterBar()};
+    bar.appendChild(btn);
+  });
+}
+function renderProjects(){
+  const grid=document.getElementById('projectGrid');
+  grid.innerHTML='';
+  projects.forEach((p,i)=>{
+    if(activeFilter!=='all'&&p.filter!==activeFilter)return;
+    const card=document.createElement('div');
+    card.className='p-card reveal'+(p.featured?' featured-card':'');
+    card.dataset.cat=p.filter;
+    const catColor=p.catClass?`p-cat ${p.catClass}`:'p-cat';
+    card.innerHTML=`
+      ${p.featured?'<span class="feat-badge">'+(lang==='de'?'AUSGEWÄHLT':'FEATURED')+'</span>':''}
+      <img src="${p.img}" alt="${p.title[lang]}" class="p-img" onerror="this.style.background='#0c1623';this.style.height='170px'"/>
+      <div class="p-body">
+        <p class="${catColor}">${p.cat[lang]}</p>
+        <h3 class="p-title">${p.title[lang]}</h3>
+        <p class="p-desc">${p.desc[lang]}</p>
+        <div class="p-btns">
+          ${p.play?`<a href="${p.play}" target="_blank" class="pb pb-demo">${lang==='de'?'Demo spielen':'Play Demo'}</a>`:''}
+          ${p.github?`<a href="${p.github}" target="_blank" class="pb pb-gh">GitHub</a>`:''}
+          ${p.playstore?`<a href="${p.playstore}" target="_blank" class="pb pb-store">Play Store</a>`:''}
+          <button class="pb pb-info" onclick="openModal(${i})">${lang==='de'?'Details':'Details'}</button>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+  document.querySelectorAll('.p-card.reveal').forEach(el=>revObs.observe(el));
+}
+
+function openModal(i){
+  const p=projects[i];
+  let btns='';
+  if(p.play) btns+=`<a href="${p.play}" target="_blank" class="pb pb-demo">${lang==='de'?'Demo spielen':'Play Demo'}</a>`;
+  if(p.github) btns+=`<a href="${p.github}" target="_blank" class="pb pb-gh">GitHub</a>`;
+  if(p.playstore) btns+=`<a href="${p.playstore}" target="_blank" class="pb pb-store">Play Store</a>`;
+  document.getElementById('modalContent').innerHTML=`
+    <p class="modal-cat">${p.cat[lang]}</p>
+    <h3 class="modal-title">${p.title[lang]}</h3>
+    <img src="${p.img}" alt="${p.title[lang]}" class="modal-img" onerror="this.style.display='none'"/>
+    <p class="modal-body">${p.details[lang]}</p>
+    <div style="display:flex;flex-wrap:wrap;gap:0.5rem">${btns}</div>`;
+  document.getElementById('modal').classList.add('open');
+}
+document.getElementById('modalClose').onclick=()=>document.getElementById('modal').classList.remove('open');
+document.getElementById('modal').onclick=e=>{if(e.target===e.currentTarget)document.getElementById('modal').classList.remove('open')};
+
+/* ===================== CONTACT FORM ===================== */
+function handleForm(e){
+  e.preventDefault();
+  const ok=document.getElementById('formOk');
+  ok.style.display='block';
+  ok.textContent=ok.getAttribute('data-'+lang);
+  e.target.reset();
+  setTimeout(()=>ok.style.display='none',5000);
+}
+
+/* ===================== RENDER ALL ===================== */
+function renderAll(){
+  renderBridge();
+  renderTimeline();
+  renderFilterBar();
   renderProjects();
-  document.getElementById('year').innerText = new Date().getFullYear();
+}
+
+/* ===================== INTERSECTION OBSERVER ===================== */
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');revObs.unobserve(en.target)}});
+},{threshold:0.08});
+function initReveal(){document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el))}
+
+renderAll();
+initReveal();
+document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>

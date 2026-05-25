@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GameDev Portfolio — Aqib Shafiq</title>
+  <meta name="description" content="Portfolio of game development projects by Aqib Shafiq — gameplay, prototypes, code, demos, and build links." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); }
+    .card-hover:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 10px 30px rgba(2,6,23,0.4); }
+    [data-theme="dark"] { background: #061024; color: #e6eef8; }
+    .btn { padding: 0.5rem 0.75rem; border-radius: 0.5rem; font-size: 0.875rem; }
+    .btn-play { background: #4f46e5; color: white; }
+    .btn-github { background: #045692; color: #f9fafb; }
+    .btn-store { background: #16a34a; color: white; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-900 text-slate-100">
+<header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
+  <div class="flex items-center gap-4">
+    <div class="w-12 h-12 rounded-md bg-indigo-500 flex items-center justify-center font-bold text-white">AS</div>
+    <div>
+      <h1 class="text-xl font-semibold">Aqib Shafiq</h1>
+      <p class="text-sm text-indigo-200">Unity Developer • Programmer • Mentor</p>
+    </div>
+  </div>
+
+  <nav class="flex items-center gap-3">
+    <!--  <button id="themeToggle" aria-label="Toggle theme" class="px-3 py-2 rounded-md glass">Toggle</button> -->
+     <a href="#contact" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-md">Contact</a>
+   </nav>
+ </header>
+ 
+ <main class="max-w-6xl mx-auto p-6">
+   <!-- HERO -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-8">
+    <div class="md:col-span-2">
+      <h2 class="text-4xl font-extrabold leading-tight">Hi — I'm Aqib Shafiq.
+        <span class="block text-indigo-300 text-lg font-medium mt-2">Unity Developer & Game Programmer with experience in AR/VR, AI-based simulation, and digital twin technology.</span>
+      </h2>
+
+      <p class="mt-4 text-slate-300">I have diverse experience in game development, virtual automation, and simulation. I specialise in gameplay programming, Unity & Godot, VR/AR, systems design, and rapid prototyping. I’ve worked with Mercedes Benz on photorealistic digital twins, as well as shipped multiple indie projects.</p>
+
+      <div class="mt-6 flex gap-3">
+        <a href="#projects" class="px-4 py-2 bg-slate-700 rounded-md">View projects</a>
+        <a href="Aqib_Shafiq_Resume.pdf" class="px-4 py-2 border border-slate-600 rounded-md">View CV</a>
+      </div>
+    </div>
+
+    <div class="hidden md:block p-6 bg-slate-800 rounded-2xl glass">
+      <h3 class="font-semibold">Quick stats</h3>
+      <ul class="mt-4 space-y-2 text-slate-300">
+        <li>✔️ Unity Game Developer (2018–Present)</li>
+        <li>✔️ VR/AR Development at Mercedes Benz</li>
+        <li>✔️ Master’s in Automotive Software Engineering (Chemnitz)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="mb-12">
+    <h3 class="text-2xl font-semibold mb-6">Projects</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="projectGrid"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="mt-12 p-6 bg-slate-800 rounded-2xl glass">
+    <h3 class="text-2xl font-semibold">Contact</h3>
+    <p class="text-slate-300 mt-2">Interested in collaborating? Get in touch via email or LinkedIn.</p>
+
+    <ul class="mt-4 text-slate-300 text-sm space-y-2">
+      <li><strong>Email:</strong> aqibshaïque94@gmail.com</li>
+      <li><strong>Phone:</strong> +49 1637905441</li>
+      <li><strong>Location:</strong> Stuttgart, Germany</li>
+        <li><a href="https://www.linkedin.com/in/aqib-shafiq-506917189/" class="underline">LinkedIn</a></li> 
+     </ul>
+   </section>
+ 
+   <footer class="mt-10 text-sm text-slate-400">Made with ❤️ • <span id="year"></span> • Aqib Shafiq — <a href="#" class="underline">GitHub</a></footer>
+ </main>
+ 
+ <!-- MODAL -->
+<div id="modal" class="fixed inset-0 hidden items-center justify-center p-6">
+  <div id="modalBg" class="absolute inset-0 bg-black/60"></div>
+  <div class="relative z-10 max-w-4xl w-full bg-slate-900 rounded-2xl p-6">
+    <button id="modalClose" class="absolute right-4 top-4 px-3 py-1 rounded-md glass">Close</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+  const projects = [
+
+
+    { title: 'Master Thesis in Photorealistic Data Generation from the Digital Twin for AI-Based Visual Quality Inspection', desc: 'CAD Data to AI Models...', img: 'GameImages/MercedesBenz.jpg',
+      details: 'A Program which uses CAD models to create a digital twin for simulating Robots using real world data. Makes High-quality images using Unity to train AI for visual inspection and exporting the result in ONNYX format. Testing the trained AI Model within a digital twin environment in unity to validate performance. The Trained AI Model Trained on Synthetic data can be used in Real Life Machines for Quality Inspections.' },
+
+
+    { title: 'Unity VR/AR Internship in Digitization department', desc: 'Developed interactive VR experiences...', img: 'GameImages/MercedesBenz.jpg',
+      details: 'Developed an Interactive VR experiences for virtual factory worker simulations, Developed Robust and well documented system in unity to Import CAD data into readymade Optimized environments with AI NPCs. Hierarchy System and Kinematics with easy accessibility. Optimized performance and enhanced UX using C# programming. Developed and Optimised Builds for WebGL and Windows platforms. ' },
+          
+    { title: 'Burning Racket VR Unity', desc: 'A hypercasual VR tennis game...', img: 'GameImages/BurningRacket.gif',
+      github: 'https://github.com/Aqib701/Burning_Racket_VR', details: 'A hypercasual VR tennis game where you must protect yourself from oncoming burning fireballs while keeping your racket cold, featuring single-player endless gameplay with easy and hard modes, focused on achieving the highest score possible.' },
+    { title: 'AR Computer Architecture', desc: 'AR app for students...', img: 'GameImages/ComputerArchitectureAR.gif',
+      github: 'https://github.com/Aqib701/ARComputerArchitecture', details: 'An Windows application for university students to explore computer hardware internals with interactive tutorials allowing them to also observe components using AR.' },
+    { title: 'Multiplayer AR', desc: 'Hypercasual 3D AR game...', img: 'GameImages/MultiplayerAR.gif',
+      github: 'https://github.com/Aqib701/Multiplayer_AR_Unity', details: 'A Hypercasual 3D AR game with player connectivity for matchmaking,players join match and control their respective cubes the main objective is to collect most coins.Whoever collects, first wins.' },
+    { title: 'TempoTube', desc: 'Meet-and-greet multiplayer...', img: 'GameImages/tempotube.png', 
+      play: 'WebGLBuilds/tempotube/index.html', details: 'An online meet-and-greet game that features integrated video call functionality. Users can create or join virtual rooms to chat and interact with others. The game also allows players to customize their experience by choosing unique avatars and display names for their characters.' },
+    { title: 'Ludo Online Multiplayer', desc: 'Mobile version of Ludo...', img: 'GameImages/Ludo.PNG',
+      details: 'A mobile game version of Extremly popular Soth Asian Board Game called Ludo.Which can be played with upto 4 people at once!<br>The game supports both offline and online multiplayer modes along with facebook account logins and In-game currency system As well as Profile system for both Guest Accounts and Facebook Accounts which can be logged in through game for extra Bonus and Custom in-game Profiles!' },
+    { title: 'Crossy Jungle Animals', desc: 'Kid-friendly hypercasual...', img: 'GameImages/CrossyJungleAnimals.png',
+      play: 'WebGLBuilds/CroosyJungleAnimals/index.html',playstore: 'https://play.google.com/store/apps/details?id=com.AllOut.CrossyJungleAnimals&hl=en', details: 'An isometric Childern friendly HyperCasual Android Game with voxel graphics and soothing sounds already hosted on Google Play.' },
+    { title: 'Baby Shark Endless', desc: '2D endless game...', img: 'GameImages/BabyShark.jpg',
+      playstore: 'https://play.google.com/store/apps/details?id=com.AllOutGames.BabySharkEndless&hl=en', details: 'A 2D easy to play game specially for childern.Player has to collect gems and unlock new sharks and save itself from colliding with hurldes in an endless level.' },
+    { title: 'Car Parking Game', desc: '3D car parking challenge...', img: 'GameImages/ParkingGame.PNG',
+      play: 'WebGLBuilds/ParkingGame/index.html', details: 'A Challenging 3D Car Game where player has to park their car through challenging levels, which get harder as the game progresses.Player can buy new cars with coins earned by completing levels.' },
+    { title: 'TankRift', desc: 'Story-based tank fighting...', img: 'GameImages/TankRift.PNG',
+      play: 'WebGLBuilds/TankRift/index.html', details: 'A story driven 3D tank game having smooth controls and different missions with changing level of difficulties, made for both Android and Windows using Unity"s cross platform inputs for both PC and Mobile devices.' },
+    { title: 'RunRace', desc: 'Clone of RunRace...', img: 'GameImages/RunRace.PNG',
+      play: 'WebGLBuilds/RunRace/index.html', details: 'Android Based game developed using Unity 2018. Its a clone of famous game Runrace using simple and free assets from unity asset store with complex and challenging probably based opponents with unique and non linear level designs.' },
+    { title: 'ShiftPerspective', desc: '2D platformer puzzle...', img: 'GameImages/ShiftPlatformer.PNG',
+      play: 'WebGLBuilds/ShiftPlatformer/index.html', details: 'A simple yet innovative 2D platformer with light/dark perspective mechanics that can be switched according to the puzzle of given lavel.Which make the game exciting, fun to play and unique from rest of its counterparts.' },
+    { title: 'Coin Toss', desc: 'Isometric coin toss app...', img: 'GameImages/CoinToss.PNG',
+      play: 'WebGLBuilds/CoinToss/index.html', details: 'A simple isometric Android application which exhibit heads/Tails Randomly using unitys Rigidbody Physics.' }
+  ];
+
+  const grid = document.getElementById('projectGrid');
+  function renderProjects() {
+    grid.innerHTML = '';
+    projects.forEach((p, i) => {
+      const card = document.createElement('div');
+      card.className = 'p-4 bg-slate-800 rounded-xl card-hover';
+      card.innerHTML = `
+          <img src="${p.img}" alt="${p.title}" class="rounded mb-3 w-full h-40 object-cover" />
+          <h5 class="font-semibold mb-1">${p.title}</h5>
+          <p class="text-sm text-slate-300 mb-3">${p.desc}</p>
+          <div class="flex flex-wrap gap-2">
+            ${p.play ? `<a href="${p.play}" target="_blank" class="btn btn-play">Play Demo</a>` : ''}
+            ${p.github ? `<a href="${p.github}" target="_blank" class="btn btn-github">Visit GitHub</a>` : ''}
+            ${p.playstore ? `<a href="${p.playstore}" target="_blank" class="btn btn-store">Play Store</a>` : ''}
+            <button class="btn glass" onclick="openModal(${i})">Details</button>
+          </div>
+        `;
+      grid.appendChild(card);
+    });
+  }
+
+  function openModal(index) {
+    const p = projects[index];
+    let links = '';
+    if (p.play) links += `<a href="${p.play}" target="_blank" class=\"btn btn-play\">Play Demo</a>`;
+    if (p.github) links += `<a href="${p.github}" target="_blank" class=\"btn btn-github\">GitHub Page</a>`;
+    if (p.playstore) links += `<a href="${p.playstore}" target="_blank" class=\"btn btn-store\">Play Store</a>`;
+
+    document.getElementById('modalContent').innerHTML = `
+        <h3 class="text-2xl font-semibold mb-2">${p.title}</h3>
+        <img src="${p.img}" alt="${p.title}" class="rounded mb-4 w-fullw-full" height="300px" width="300px" />
+        <p class="text-slate-300 mb-4">${p.details}</p>
+        <div class="flex flex-wrap gap-2">${links}</div>
+      `;
+    document.getElementById('modal').classList.remove('hidden');
+    document.getElementById('modal').classList.add('flex');
+  }
+
+  document.getElementById('modalClose').onclick = () => {
+    document.getElementById('modal').classList.add('hidden');
+    document.getElementById('modal').classList.remove('flex');
+  };
+  document.getElementById('modalBg').onclick = () => {
+    document.getElementById('modal').classList.add('hidden');
+    document.getElementById('modal').classList.remove('flex');
+  };
+
+  renderProjects();
+  document.getElementById('year').innerText = new Date().getFullYear();
+</script>
+</body>
+</html>
