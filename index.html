@@ -29,7 +29,7 @@
   --font-mono:'Share Tech Mono',monospace;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:17px;line-height:1.6;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:19px;line-height:1.65;overflow-x:hidden}
 
 /* ENGINEERING GRID BG — persistent */
 .eng-grid{position:fixed;inset:0;pointer-events:none;z-index:0;
@@ -47,7 +47,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 a,button,select{cursor:pointer}
 
 /* ===== NAV ===== */
-nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:0.85rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(4,8,15,0.92);border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:0.85rem 4rem;display:flex;align-items:center;justify-content:space-between;background:rgba(4,8,15,0.92);border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}
 .nav-logo{font-family:var(--font-display);font-size:1.7rem;color:var(--accent);letter-spacing:0.06em;text-decoration:none;display:flex;align-items:center;gap:0.5rem}
 .nav-logo-sub{font-family:var(--font-mono);font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.15em;display:block;line-height:1;margin-top:-2px}
 .nav-links{display:flex;gap:1.75rem;list-style:none;align-items:center}
@@ -63,11 +63,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:0.85rem 2rem;display
 .nav-cta:hover{background:var(--accent);color:var(--bg)}
 
 /* ===== SHARED ===== */
-.wrap{max-width:1200px;margin:0 auto;padding:0 2rem;position:relative;z-index:2}
+.wrap{max-width:1600px;margin:0 auto;padding:0 4rem;position:relative;z-index:2}
 section{position:relative;z-index:2}
-.section-tag{font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:0.5rem}
+.section-tag{font-family:var(--font-mono);font-size:0.82rem;color:var(--accent);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:0.5rem}
 .section-tag::before{content:'// '}
-.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.5rem);letter-spacing:0.04em;line-height:1}
+.section-title{font-family:var(--font-display);font-size:clamp(2.8rem,4.5vw,5rem);letter-spacing:0.04em;line-height:1}
 .section-title .o{color:var(--accent2)}
 .section-title .c{color:var(--accent)}
 .section-divider{width:80px;height:1px;background:linear-gradient(90deg,var(--accent),transparent);margin-top:1rem;margin-bottom:3rem}
@@ -81,7 +81,7 @@ section{position:relative;z-index:2}
 .hero-corner2{position:absolute;bottom:2rem;left:0;width:200px;height:3px;background:linear-gradient(90deg,var(--accent2),transparent)}
 .hero-inner{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}
 .hero-photo-col{display:flex;flex-direction:column;align-items:center;gap:1rem}
-.hero-photo-frame{width:220px;height:220px;position:relative;flex-shrink:0}
+.hero-photo-frame{width:300px;height:300px;position:relative;flex-shrink:0}
 .hero-photo-frame::before{content:'';position:absolute;inset:-8px;border:1px solid var(--accent);opacity:0.4;clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px)}
 .hero-photo-frame::after{content:'';position:absolute;inset:-4px;border:1px solid var(--accent2);opacity:0.25;clip-path:polygon(24px 0%,100% 0%,100% calc(100% - 24px),calc(100% - 24px) 100%,0% 100%,0% 24px)}
 .hero-photo{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;filter:grayscale(20%) contrast(1.05);clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px)}
@@ -109,7 +109,7 @@ section{position:relative;z-index:2}
 .hero-sys{font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;display:flex;align-items:center;gap:1rem}
 .hero-sys::before{content:'';width:6px;height:6px;background:var(--accent3);display:inline-block;animation:blink 1.2s step-end infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-.hero-title{font-family:var(--font-display);font-size:clamp(4.5rem,13vw,10rem);line-height:0.88;letter-spacing:0.01em;margin-bottom:1.5rem}
+.hero-title{font-family:var(--font-display);font-size:clamp(5rem,14vw,12rem);line-height:0.88;letter-spacing:0.01em;margin-bottom:1.5rem}
 .hero-title .ghost{color:transparent;-webkit-text-stroke:1px rgba(0,229,255,0.5)}
 .hero-tagline{font-size:1.1rem;color:var(--muted);max-width:580px;line-height:1.75;margin-bottom:2.5rem}
 .hero-tagline strong{color:var(--text)}
@@ -124,12 +124,12 @@ section{position:relative;z-index:2}
 .stat-cell:last-child{border-right:none}
 .stat-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s 0.2s}
 .stat-cell.visible::before{transform:scaleX(1)}
-.stat-n{font-family:var(--font-display);font-size:2.4rem;color:var(--accent);display:block;line-height:1}
-.stat-l{font-family:var(--font-mono);font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem}
+.stat-n{font-family:var(--font-display);font-size:3rem;color:var(--accent);display:block;line-height:1}
+.stat-l{font-family:var(--font-mono);font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem}
 
 /* ===== BRIDGE SECTION — game → automotive ===== */
 #bridge{background:var(--surface);padding:5rem 0}
-.bridge-headline{font-family:var(--font-display);font-size:clamp(1.6rem,3.5vw,2.4rem);letter-spacing:0.04em;line-height:1.1;max-width:800px;margin-bottom:3rem}
+.bridge-headline{font-family:var(--font-display);font-size:clamp(2rem,3vw,3rem);letter-spacing:0.04em;line-height:1.1;max-width:800px;margin-bottom:3rem}
 .bridge-headline .hl{color:var(--accent)}
 .bridge-headline .hl2{color:var(--accent2)}
 .bridge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-bottom:3rem}
@@ -138,11 +138,11 @@ section{position:relative;z-index:2}
 .bridge-card-arrow{position:absolute;top:50%;right:-1.5rem;transform:translateY(-50%);font-family:var(--font-mono);font-size:1.4rem;color:var(--accent2);z-index:4}
 .bridge-card.right{border-color:var(--border2);background:rgba(255,107,0,0.04)}
 .bridge-card.right:hover{border-color:var(--accent2)}
-.bc-tag{font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem}
+.bc-tag{font-family:var(--font-mono);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem}
 .bc-left .bc-tag{color:var(--accent)}
 .bc-right .bc-tag{color:var(--accent2)}
-.bc-title{font-family:var(--font-display);font-size:1.3rem;letter-spacing:0.03em;margin-bottom:0.6rem}
-.bc-body{font-size:0.92rem;color:var(--muted);line-height:1.7}
+.bc-title{font-family:var(--font-display);font-size:1.6rem;letter-spacing:0.03em;margin-bottom:0.6rem}
+.bc-body{font-size:1.05rem;color:var(--muted);line-height:1.7}
 .bridge-connector{display:flex;justify-content:center;align-items:center;gap:0;margin:0 0 3rem}
 .bridge-connector-inner{display:flex;align-items:center;gap:0;background:var(--surface2);border:1px solid var(--border);padding:0.1rem}
 .bc-pill{font-family:var(--font-mono);font-size:0.68rem;padding:0.5rem 1.25rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted)}
@@ -172,7 +172,7 @@ section{position:relative;z-index:2}
 .skills-col h4{font-family:var(--font-mono);font-size:0.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.18em;margin-bottom:0.75rem;margin-top:1.5rem}
 .skills-col h4:first-child{margin-top:0}
 .skill-list{display:flex;flex-wrap:wrap;gap:0.5rem}
-.sk{font-family:var(--font-mono);font-size:0.68rem;padding:0.3rem 0.65rem;background:var(--surface2);border:1px solid var(--border);color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;transition:all 0.2s}
+.sk{font-family:var(--font-mono);font-size:0.78rem;padding:0.3rem 0.65rem;background:var(--surface2);border:1px solid var(--border);color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;transition:all 0.2s}
 .sk:hover{border-color:var(--accent);color:var(--accent)}
 .sk.hot{border-color:rgba(0,229,255,0.3);color:var(--text)}
 
@@ -185,12 +185,12 @@ section{position:relative;z-index:2}
 .tl-dot{position:absolute;left:-6.5px;top:6px;width:13px;height:13px;background:var(--bg);border:1.5px solid var(--accent);transform:rotate(45deg)}
 .tl-dot.orange{border-color:var(--accent2)}
 .tl-dot.dim{border-color:var(--muted)}
-.tl-meta{font-family:var(--font-mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.25rem}
+.tl-meta{font-family:var(--font-mono);font-size:0.78rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.25rem}
 .tl-meta.orange{color:var(--accent2)}
 .tl-meta.dim{color:var(--muted)}
 .tl-co{font-family:var(--font-mono);font-size:0.7rem;color:var(--steel);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem}
-.tl-role{font-family:var(--font-display);font-size:1.55rem;letter-spacing:0.03em;margin-bottom:0.75rem}
-.tl-body{font-size:0.93rem;color:var(--muted);line-height:1.75;max-width:700px}
+.tl-role{font-family:var(--font-display);font-size:2rem;letter-spacing:0.03em;margin-bottom:0.75rem}
+.tl-body{font-size:1.05rem;color:var(--muted);line-height:1.75;max-width:700px}
 .tl-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.9rem}
 .tl-tag{font-family:var(--font-mono);font-size:0.62rem;padding:0.2rem 0.55rem;border:1px solid rgba(0,229,255,0.15);color:var(--muted);text-transform:uppercase;letter-spacing:0.06em}
 .tl-tag.hot{border-color:rgba(255,107,0,0.3);color:rgba(255,107,0,0.7)}
@@ -211,11 +211,11 @@ section{position:relative;z-index:2}
 .p-card:hover .p-img{filter:saturate(1) brightness(0.9)}
 .p-body{padding:1.2rem;flex:1;display:flex;flex-direction:column;position:relative;z-index:2}
 .featured-card .p-body{padding:2rem}
-.p-cat{font-family:var(--font-mono);font-size:0.62rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.35rem}
+.p-cat{font-family:var(--font-mono);font-size:0.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.35rem}
 .p-cat.orange{color:var(--accent2)}
-.p-title{font-family:var(--font-display);font-size:1.25rem;letter-spacing:0.02em;margin-bottom:0.5rem;line-height:1.15}
+.p-title{font-family:var(--font-display);font-size:1.5rem;letter-spacing:0.02em;margin-bottom:0.5rem;line-height:1.15}
 .featured-card .p-title{font-size:1.7rem}
-.p-desc{font-size:0.88rem;color:var(--muted);line-height:1.65;flex:1}
+.p-desc{font-size:1rem;color:var(--muted);line-height:1.65;flex:1}
 .p-btns{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem}
 .pb{font-family:var(--font-mono);font-size:0.62rem;padding:0.3rem 0.75rem;text-decoration:none;text-transform:uppercase;letter-spacing:0.08em;border:1px solid;transition:all 0.2s;background:none}
 .pb-demo{border-color:var(--accent);color:var(--accent)}
@@ -247,13 +247,13 @@ section{position:relative;z-index:2}
 .c-ok{font-family:var(--font-mono);font-size:0.75rem;color:var(--accent3);display:none;margin-top:0.5rem}
 
 /* FOOTER */
-footer{padding:1.75rem 2rem;text-align:center;font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);border-top:1px solid var(--border);position:relative;z-index:2}
+footer{padding:1.75rem 4rem;text-align:center;font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);border-top:1px solid var(--border);position:relative;z-index:2}
 footer a{color:var(--accent);text-decoration:none}
 
 /* MODAL */
 .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:2000;align-items:center;justify-content:center;padding:2rem}
 .modal-ov.open{display:flex}
-.modal-box{background:var(--surface);border:1px solid var(--border);max-width:660px;width:100%;max-height:88vh;overflow-y:auto;position:relative;padding:2rem}
+.modal-box{background:var(--surface);border:1px solid var(--border);max-width:860px;width:100%;max-height:88vh;overflow-y:auto;position:relative;padding:2rem}
 .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--font-mono);font-size:0.65rem;padding:0.3rem 0.75rem;transition:all 0.2s}
 .modal-close:hover{border-color:var(--accent2);color:var(--accent2)}
 .modal-cat{font-family:var(--font-mono);font-size:0.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.4rem}
@@ -275,7 +275,7 @@ footer a{color:var(--accent);text-decoration:none}
 }
 @media(max-width:600px){
   nav{padding:0.75rem 1rem}
-  .wrap{padding:0 1rem}
+  .wrap{padding:0 1.25rem}
   .proj-grid{grid-template-columns:1fr}
   .hero-stats{grid-template-columns:1fr 1fr}
 }
@@ -289,7 +289,7 @@ footer a{color:var(--accent);text-decoration:none}
   <a href="#" class="nav-logo">
     AS
     <span>
-      <span class="nav-logo-sub" data-en="Software Developer · Stuttgart" data-de="Software-Entwickler · Stuttgart">Software Developer · Stuttgart</span>
+      <span class="nav-logo-sub" data-en="Software Developer · Remote" data-de="Software-Entwickler · Remote">Software Developer · Remote</span>
     </span>
   </a>
   <ul class="nav-links">
@@ -316,9 +316,9 @@ footer a{color:var(--accent);text-decoration:none}
     <div class="hero-inner">
       <!-- LEFT: text -->
       <div>
-        <p class="hero-sys" data-en="SYSTEM ONLINE · UNITY DEVELOPER · STUTTGART, DE" data-de="SYSTEM AKTIV · UNITY-ENTWICKLER · STUTTGART, DE">SYSTEM ONLINE · UNITY DEVELOPER · STUTTGART, DE</p>
+        <p class="hero-sys" data-en="SYSTEM ONLINE · SOFTWARE DEVELOPER · AVAILABLE REMOTELY" data-de="SYSTEM AKTIV · UNITY-ENTWICKLER >SYSTEM ONLINE · UNITY DEVELOPER </p>
         <h1 class="hero-title">AQIB<br><span class="ghost">SHAFIQ</span></h1>
-        <p class="hero-tagline" data-en="<strong>7+ years engineering interactive 3D systems</strong> — from mobile games and AR/VR applications to photorealistic digital twins and AI-powered simulation at <strong>Mercedes-Benz.</strong>" data-de="<strong>7+ Jahre Entwicklung interaktiver 3D-Systeme</strong> — von Mobile Games und AR/VR-Anwendungen bis hin zu fotorealistischen Digital Twins und KI-gestützter Simulation bei <strong>Mercedes-Benz.</strong>"></p>
+        <p class="hero-tagline" data-en="<strong>7+ years engineering interactive 3D systems</strong> — from mobile games and AR/VR applications to photorealistic digital twins and AI-powered simulation, working remotely with clients including <strong>Mercedes-Benz.</strong>" data-de="<strong>7+ Jahre Entwicklung interaktiver 3D-Systeme</strong> — von Mobile Games und AR/VR-Anwendungen bis hin zu fotorealistischen Digital Twins und KI-gestützter Simulation, remote für Kunden wie <strong>Mercedes-Benz.</strong>"></p>
         <div class="hero-btns">
           <a href="#projects" class="btn-prime" data-en="View Projects" data-de="Projekte ansehen">View Projects</a>
           <a href="#bridge" class="btn-ghost" data-en="My Journey" data-de="Mein Weg">My Journey</a>
@@ -353,7 +353,7 @@ footer a{color:var(--accent);text-decoration:none}
           </div>
         </div>
         <div class="hero-id-chip">Aqib Shafiq</div>
-        <div class="hero-id-chip" style="color:var(--accent)">Stuttgart, Germany</div>
+        
         <div class="hero-id-chip" style="font-size:0.55rem">KOCHA SADIQ H.NO 151, MOH GARHA, CHINIOT 35400</div>
         <div class="hero-id-chip"><a href="mailto:aqibshafique94@gmail.com" style="color:var(--muted);text-decoration:none">aqibshafique94@gmail.com</a></div>
       </div>
@@ -402,7 +402,7 @@ footer a{color:var(--accent);text-decoration:none}
     <div class="about-2col">
       <div class="reveal">
         <div class="about-body">
-          <p data-en="I'm a <strong>Software Developer and Game Programmer</strong> based in Stuttgart, Germany, currently pursuing my Master's in Automotive Software Engineering at TU Chemnitz — while working full-time with <strong>Mercedes-Benz</strong> on VR and digital twin technology." data-de="Ich bin <strong>Software-Entwickler und Game Programmer</strong> mit Sitz in Stuttgart, Deutschland, und studiere derzeit Automotive Software Engineering im Master an der TU Chemnitz — während ich gleichzeitig bei <strong>Mercedes-Benz</strong> an VR- und Digital-Twin-Technologie arbeite."></p>
+          <p data-en="I'm a <strong>Software Developer and Game Programmer</strong> currently pursuing my Master's in Automotive Software Engineering at TU Chemnitz — while working with <strong>Mercedes-Benz</strong> on VR and digital twin technology." data-de="Ich bin <strong>Software-Entwickler und Game Programmer</strong> und studiere derzeit Automotive Software Engineering im Master an der TU Chemnitz — während ich gleichzeitig bei <strong>Mercedes-Benz</strong> an VR- und Digital-Twin-Technologie arbeite."></p>
           <p data-en="My expertise spans the full spectrum of real-time 3D: from <strong>mobile hypercasual games and AR educational tools</strong> to <strong>multiplayer networked systems and VR training environments</strong> for automotive production." data-de="Mein Know-how umfasst das gesamte Spektrum von Echtzeit-3D: von <strong>mobilen Hypercasual-Spielen und AR-Bildungsanwendungen</strong> bis zu <strong>vernetzten Multiplayer-Systemen und VR-Trainingsumgebungen</strong> für die Automobilproduktion."></p>
           <p data-en="I've published games on the <strong>Google Play Store</strong>, mentored CS graduates in game development, and worked across 3 consecutive roles at Mercedes-Benz, culminating in my Master Thesis on <strong>AI-based visual quality inspection using synthetic data.</strong>" data-de="Ich habe Spiele im <strong>Google Play Store</strong> veröffentlicht, Informatikabsolventen in der Spieleentwicklung betreut und in 3 aufeinanderfolgenden Positionen bei Mercedes-Benz gearbeitet, mit Abschluss meiner Masterarbeit über <strong>KI-basierte visuelle Qualitätsprüfung mittels synthetischer Daten.</strong>"></p>
         </div>
@@ -507,7 +507,7 @@ footer a{color:var(--accent);text-decoration:none}
         <div class="id-details">
           <div class="id-detail"><span class="lbl" data-en="Email" data-de="E-Mail">Email</span><a href="mailto:aqibshafique94@gmail.com">aqibshafique94@gmail.com</a></div>
           <div class="id-detail"><span class="lbl" data-en="Phone" data-de="Telefon">Phone</span><span>+49 163 7905441</span></div>
-          <div class="id-detail"><span class="lbl" data-en="Address" data-de="Adresse">Address</span><span data-en="KOCHA SADIQ H.NO 151 MOH GARHA CHINIOT 35400, Pakistan" data-de="KOCHA SADIQ H.NO 151 MOH GARHA CHINIOT 35400, Pakistan">KOCHA SADIQ H.NO 151 MOH GARHA CHINIOT 35400, Pakistan</span></div>
+          <div class="id-detail"><span class="lbl" data-en="Address" data-de="Adresse">Address</span><span data-en="KOCHA SADIQ H.NO 151, MOH GARHA, CHINIOT 35400, Pakistan" data-de="KOCHA SADIQ H.NO 151, MOH GARHA, CHINIOT 35400, Pakistan">KOCHA SADIQ H.NO 151, MOH GARHA, CHINIOT 35400, Pakistan</span></div>
           <div class="id-detail"><span class="lbl">Web</span><a href="https://aqib701.github.io/" target="_blank">aqib701.github.io</a></div>
         </div>
       </div>
@@ -515,11 +515,11 @@ footer a{color:var(--accent);text-decoration:none}
 
     <div class="contact-2col">
       <div class="reveal">
-        <p class="contact-intro" data-en="Open to full-time roles, freelance contracts, and research collaborations in Unity, AR/VR, real-time simulation, or game development. Based in Stuttgart — available for on-site or remote work across Germany and Europe." data-de="Offen für Vollzeitstellen, Freiberuflichkeit und Forschungskooperationen in Unity, AR/VR, Echtzeitsimulation oder Spieleentwicklung. Wohnhaft in Stuttgart — verfügbar für Vor-Ort- oder Remote-Arbeit in Deutschland und Europa."></p>
+        <p class="contact-intro" data-en="Open to full-time roles, freelance contracts, and research collaborations in Unity, AR/VR, real-time simulation, or game development. Available for remote work and on-site opportunities across Europe." data-de="Offen für Vollzeitstellen, Freiberuflichkeit und Forschungskooperationen in Unity, AR/VR, Echtzeitsimulation oder Spieleentwicklung. Verfügbar für Remote-Arbeit und Vor-Ort-Möglichkeiten in Europa."></p>
         <ul class="contact-links">
           <li><span class="cl-label" data-en="Email" data-de="E-Mail">Email</span><a href="mailto:aqibshafique94@gmail.com">aqibshafique94@gmail.com</a></li>
           <li><span class="cl-label" data-en="Phone" data-de="Telefon">Phone</span><span>+49 163 7905441</span></li>
-          <li><span class="cl-label" data-en="Location" data-de="Standort">Location</span><span data-en="Stuttgart, Germany" data-de="Stuttgart, Deutschland">Stuttgart, Germany</span></li>
+          
           <li><span class="cl-label" data-en="Address" data-de="Adresse">Address</span><span>KOCHA SADIQ H.NO 151, MOH GARHA, CHINIOT 35400, Pakistan</span></li>
           <li><span class="cl-label">LinkedIn</span><a href="https://www.linkedin.com/in/aqib-shafiq-506917189/" target="_blank">aqib-shafiq-506917189</a></li>
           <li><span class="cl-label">GitHub</span><a href="https://github.com/Aqib701" target="_blank">Aqib701</a></li>
@@ -549,7 +549,7 @@ footer a{color:var(--accent);text-decoration:none}
 </section>
 
 <footer>
-  <p><span data-en="Designed & built by" data-de="Gestaltet & entwickelt von">Designed & built by</span> <a href="#">Aqib Shafiq</a> · Stuttgart, Germany · <span id="yr"></span> · <a href="https://aqib701.github.io/" target="_blank">aqib701.github.io</a></p>
+  <p><span data-en="Designed & built by" data-de="Gestaltet & entwickelt von">Designed & built by</span> <a href="#">Aqib Shafiq</a> · <span id="yr"></span> · <a href="https://aqib701.github.io/" target="_blank">aqib701.github.io</a></p>
 </footer>
 
 <!-- MODAL -->
@@ -603,24 +603,24 @@ const expData = [
     dateColor:'accent',
     company:'Mercedes-Benz AG · Sindelfingen',
     role:{en:'Working Student — VR Development',de:'Werkstudent — VR-Entwicklung'},
-    body:{en:'Developing immersive VR solutions for automotive applications using real production data. Building and optimizing Unity packages, integrating virtual environments for design review, process simulation, and real-time testing. Collaborating with cross-functional engineering teams to troubleshoot and ship new features.',de:'Entwicklung immersiver VR-Lösungen für Automotive-Anwendungen mit realen Produktionsdaten. Aufbau und Optimierung von Unity-Paketen, Integration virtueller Umgebungen für Design-Review und Echtzeit-Tests. Zusammenarbeit mit interdisziplinären Ingenieurteams.'},
+    body:{en:'Developing immersive VR solutions for automotive applications remotely, utilizing real production data. Building and optimizing Unity packages, integrating virtual environments for design review, process simulation, and real-time testing. Collaborating online with cross-functional engineering teams to troubleshoot and deliver new features.',de:'Entwicklung immersiver VR-Lösungen für Automotive-Anwendungen remote, mit realen Produktionsdaten. Aufbau und Optimierung von Unity-Paketen, Integration virtueller Umgebungen für Design-Review und Echtzeit-Tests. Online-Zusammenarbeit mit interdisziplinären Ingenieurteams.'},
     tags:['Unity 3D','VR','C#','Digital Twin','Performance']
   },
   {
     date:{en:'May 2025 — Nov 2025',de:'Mai 2025 — Nov 2025'},
     dateColor:'accent',
-    company:'Mercedes-Benz AG · Stuttgart',
+    company:'Mercedes-Benz AG (Remote )',
     role:{en:'Master Thesis — AI Visual Quality Inspection',de:'Masterarbeit — KI-Visuelle Qualitätsprüfung'},
-    body:{en:'Integrated CAD models into high-fidelity digital twins simulating robotic operations. Generated 1,000+ photorealistic synthetic images per minute for AI training in Unity. Exported in ONNX format; achieved 95%+ accuracy in simulation and real-world. Deployed cross-platform standalone for Windows & Linux.',de:'CAD-Modelle in hochauflösende Digital Twins für Robotersimulation integriert. 1.000+ fotorealistische synthetische Bilder/Min für KI-Training in Unity generiert. ONNX-Export; über 95% Genauigkeit in Simulation und Realwelt. Plattformübergreifend für Windows & Linux deployed.'},
+    body:{en:'Conducted remotely: integrated CAD models into high-fidelity digital twins simulating robotic operations. Generated 1,000+ photorealistic synthetic images per minute for AI training in Unity. Exported in ONNX format; achieved 95%+ accuracy in simulation and real-world validation. Delivered cross-platform standalone builds for Windows & Linux.',de:'Remote durchgeführt: CAD-Modelle in hochauflösende Digital Twins für Robotersimulation integriert. 1.000+ fotorealistische Bilder/Min für KI-Training in Unity generiert. ONNX-Export; über 95% Genauigkeit in Simulation und Realwelt. Plattformübergreifende Builds für Windows & Linux geliefert.'},
     tags:['ONNX','AI/ML','CAD','Synthetic Data','Windows','Linux'],
     hotTags:['ONNX','AI/ML','Synthetic Data']
   },
   {
     date:{en:'Sep 2024 — Mar 2025',de:'Sep 2024 — März 2025'},
     dateColor:'accent',
-    company:'Mercedes-Benz AG · Stuttgart',
+    company:'Mercedes-Benz AG (Remote )',
     role:{en:'Internship — Unity / VR / AR, Digitalization',de:'Praktikum — Unity / VR / AR, Digitalisierung'},
-    body:{en:'Developed VR factory worker training simulations. Optimized performance: −30% file size, +50% runtime speed. Integrated VR headsets/controllers for realistic training. Deployed for WebGL, Windows, and Pico VR (Android).',de:'VR-Schulungssimulationen für Fabrikarbeiter entwickelt. Leistungsoptimierung: −30% Dateigrösse, +50% Laufzeitgeschwindigkeit. VR-Headsets/Controller integriert. Deployed für WebGL, Windows und Pico VR (Android).'},
+    body:{en:'Developed VR factory worker training simulations, working online with the digitalization team. Optimized performance: −30% file size, +50% runtime speed. Integrated VR headsets/controllers for realistic training. Delivered cross-platform builds for WebGL, Windows, and Pico VR (Android).',de:'VR-Schulungssimulationen für Fabrikarbeiter remote entwickelt, in enger Online-Zusammenarbeit mit dem Digitalisierungsteam. Leistungsoptimierung: −30% Dateigrösse, +50% Laufzeitgeschwindigkeit. VR-Headsets/Controller integriert. Cross-Platform-Builds für WebGL, Windows und Pico VR geliefert.'},
     tags:['Pico VR','WebGL','C#','Performance','AR','Android'],
     hotTags:['Pico VR','WebGL']
   },
@@ -629,7 +629,7 @@ const expData = [
     dateColor:'orange',
     company:'High on Tech',
     role:{en:'Unity Game Developer',de:'Unity Game Developer'},
-    body:{en:'Shipped 3D, AR/VR, and 2D applications for international clients. Built HN-Metaverse (Germany open world platform), Warside FPS Battle Royale, Ludo Online Multiplayer. Specialised in gameplay AI, optimisation, and cross-platform builds.',de:'3D-, AR/VR- und 2D-Anwendungen für internationale Kunden entwickelt. HN-Metaverse (Germany Open World), Warside FPS Battle Royale, Ludo Online Multiplayer gebaut. Spezialisiert auf Gameplay-KI und Cross-Platform-Builds.'},
+    body:{en:'Shipped 3D, AR/VR, and 2D applications for international clients online. Built HN-Metaverse (Germany open world platform), Warside FPS Battle Royale, Ludo Online Multiplayer. Specialised in gameplay AI, optimisation, and cross-platform builds delivered remotely.',de:'3D-, AR/VR- und 2D-Anwendungen für internationale Kunden online entwickelt. HN-Metaverse, Warside FPS Battle Royale, Ludo Online Multiplayer gebaut. Spezialisiert auf Gameplay-KI und plattformübergreifende Builds, remote geliefert.'},
     tags:['Unity','Multiplayer','AR/VR','Mobile','Firebase','C#']
   },
   {
@@ -637,7 +637,7 @@ const expData = [
     dateColor:'dim',
     company:{en:'UMT · Lahore',de:'UMT · Lahore'},
     role:{en:'Lab Engineer',de:'Laboringenieur'},
-    body:{en:'Taught C, Python, SQL, and C# to up to 50 students per session. Provided personalised feedback and guided students through interactive coding labs.',de:'C, Python, SQL und C# an bis zu 50 Studierenden pro Sitzung unterrichtet. Persönliches Feedback und interaktive Programmierlabs geleitet.'},
+    body:{en:'Taught C, Python, SQL, and C# to up to 50 students per session via online and in-person labs. Provided personalised feedback and guided students through interactive coding exercises.',de:'C, Python, SQL und C# an bis zu 50 Studierenden pro Sitzung unterrichtet. Persönliches Feedback und interaktive Programmierlabs geleitet.'},
     tags:['Teaching','Python','C#','SQL']
   },
   {
@@ -645,7 +645,7 @@ const expData = [
     dateColor:'dim',
     company:'GameTrain',
     role:{en:'Unity 3D Instructor & Mentor',de:'Unity 3D Dozent & Mentor'},
-    body:{en:'Trained CS graduates in Unity 3D. Led project teams from concept to shipped mobile game. Provided industry placement mentorship for graduates entering game development.',de:'Informatikabsolventen in Unity 3D ausgebildet. Projektteams von der Idee bis zum fertigen Mobilspiel geleitet. Branchenplatzierungs-Mentoring für Absolventen.'},
+    body:{en:'Trained CS graduates in Unity 3D online and in person. Led remote project teams from concept to shipped mobile game. Provided industry placement mentorship for graduates entering game development.',de:'Informatikabsolventen in Unity 3D ausgebildet. Projektteams von der Idee bis zum fertigen Mobilspiel geleitet. Branchenplatzierungs-Mentoring für Absolventen.'},
     tags:['Mentorship','Unity','Mobile','Project Management']
   }
 ];
